@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Hub enerBit — Calendario 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --eb-purple:#5f458f; --eb-purple-light:#7b5ea7; --eb-purple-pale:#ede8f5;
+  --eb-orange:#ff7426; --eb-orange-light:#ff9657; --eb-orange-pale:#fff1ea;
+  --eb-yellow:#f5c800; --bg:#f4f2f9; --white:#ffffff;
+  --text:#1a1228; --muted:#7b7496; --border:#e2ddf0; --border-light:#f0ecf8; --surface2:#f9f7fd;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:var(--white);border-bottom:1px solid var(--border);
+  padding:0 28px;display:flex;align-items:center;gap:28px;height:62px;
+  box-shadow:0 1px 8px rgba(95,69,143,.07);
+}
+.nav-logo{display:flex;align-items:center;gap:9px;font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:var(--eb-purple);text-decoration:none;}
+.logo-bolt{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--eb-purple),var(--eb-orange));display:flex;align-items:center;justify-content:center;font-size:15px;}
+.nav-links{display:flex;gap:2px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:700;padding:6px 13px;border-radius:8px;transition:all .15s;cursor:pointer;}
+.nav-links a:hover{color:var(--eb-purple);background:var(--eb-purple-pale);}
+.nav-links a.active{color:var(--eb-purple);background:var(--eb-purple-pale);}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.btn-add{background:linear-gradient(135deg,var(--eb-purple),var(--eb-purple-light));color:white;border:none;padding:8px 18px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:6px;box-shadow:0 2px 10px rgba(95,69,143,.28);transition:opacity .2s,transform .15s;}
+.btn-add:hover{opacity:.88;transform:translateY(-1px);}
+
+/* ── VIEWS ── */
+.view{display:none;}
+.view.active{display:block;}
+
+/* ── HERO (home) ── */
+.hero{background:linear-gradient(135deg,var(--eb-purple) 0%,#3d2a6a 55%,#2a1b4a 100%);padding:48px 28px 44px;position:relative;overflow:hidden;}
+.hero-bolt1{position:absolute;right:-10px;top:-20px;font-size:260px;opacity:.05;pointer-events:none;line-height:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(255,116,38,.18);border:1px solid rgba(255,116,38,.38);color:#ffb380;font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;}
+.hero-title{font-family:'Nunito',sans-serif;font-size:clamp(24px,3.2vw,38px);font-weight:900;line-height:1.15;color:white;letter-spacing:-.6px;margin-bottom:8px;}
+.hero-title .hi{color:var(--eb-orange);}
+.hero-sub{color:rgba(255,255,255,.6);font-size:14.5px;max-width:500px;line-height:1.65;margin-bottom:32px;}
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;max-width:840px;}
+.kpi-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:16px 18px;backdrop-filter:blur(8px);transition:background .2s;}
+.kpi-card:hover{background:rgba(255,255,255,.14);}
+.kpi-label{font-size:10.5px;color:rgba(255,255,255,.48);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;font-weight:700;}
+.kpi-value{font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;color:white;letter-spacing:-1px;line-height:1;}
+.kpi-value .acc{color:var(--eb-orange);}
+.kpi-sub{font-size:11.5px;color:rgba(255,255,255,.4);margin-top:4px;}
+
+/* ── MAIN CONTENT ── */
+.main{padding:26px 28px 48px;}
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.sec-title{font-family:'Nunito',sans-serif;font-size:19px;font-weight:900;color:var(--text);}
+.sec-count{font-size:12px;font-weight:800;color:var(--eb-purple);background:var(--eb-purple-pale);padding:3px 11px;border-radius:20px;}
+
+/* ── CARDS (actividades) ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;}
+.card{background:var(--white);border:1.5px solid var(--border);border-radius:17px;padding:22px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden;animation:fadeUp .35s ease both;}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ca,var(--eb-purple));border-radius:17px 17px 0 0;}
+.card:hover{border-color:var(--eb-purple);box-shadow:0 6px 22px rgba(95,69,143,.11);transform:translateY(-2px);}
+.card:nth-child(2){animation-delay:.04s}.card:nth-child(3){animation-delay:.08s}
+.card:nth-child(4){animation-delay:.12s}.card:nth-child(5){animation-delay:.16s}
+.card:nth-child(6){animation-delay:.20s}.card:nth-child(7){animation-delay:.24s}
+.card:nth-child(8){animation-delay:.28s}.card:nth-child(9){animation-delay:.32s}
+.card:nth-child(10){animation-delay:.36s}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;}
+.type-badge{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.4px;font-family:'Nunito',sans-serif;}
+.bdot{width:6px;height:6px;border-radius:50%;}
+.sbadge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:800;font-family:'Nunito',sans-serif;}
+.s-comp{background:#e9f7ef;color:#1a8f48;}.s-neg{background:#fff8e1;color:#b07d00;}.s-no{background:#f3f0f9;color:#7b5ea7;}.s-eje{background:#e8f0ff;color:#1d4ed8;}
+.strat-tag{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:800;color:var(--eb-orange);background:var(--eb-orange-pale);border:1px solid rgba(255,116,38,.18);padding:3px 9px;border-radius:5px;margin-bottom:8px;font-family:'Nunito',sans-serif;}
+.card-name{font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;line-height:1.2;margin-bottom:7px;letter-spacing:-.2px;}
+.card-desc{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.card-meta{display:flex;flex-wrap:wrap;gap:9px;padding-top:12px;border-top:1px solid var(--border-light);font-size:12px;color:var(--muted);font-weight:600;}
+.mi{display:flex;align-items:center;gap:4px;}
+.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--border-light);}
+.buyer-tag{display:flex;align-items:center;gap:6px;background:var(--eb-purple-pale);border-radius:20px;padding:4px 11px 4px 5px;font-size:12px;font-weight:700;color:var(--eb-purple);}
+.av{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--eb-purple),var(--eb-orange));display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:white;font-family:'Nunito',sans-serif;flex-shrink:0;}
+.inv-chip{font-family:'Nunito',sans-serif;font-size:14px;font-weight:900;color:var(--eb-purple);}
+.inv-sub{font-size:10.5px;color:var(--muted);font-weight:600;}
+.comment-banner{background:var(--eb-purple-pale);border:1.5px solid rgba(95,69,143,.18);border-radius:10px;padding:9px 14px;margin-bottom:14px;font-size:12px;color:var(--eb-purple);font-weight:600;line-height:1.5;display:flex;gap:8px;align-items:flex-start;}
+
+
+/* ── ACTIVITY FILTERS BAR ── */
+.filters{
+  position:sticky;top:62px;z-index:90;
+  background:var(--white);border-bottom:1px solid var(--border);
+  padding:9px 28px;display:flex;align-items:center;gap:7px;flex-wrap:wrap;
+  box-shadow:0 2px 6px rgba(0,0,0,.04);
+}
+.fb{
+  background:var(--surface2);border:1.5px solid var(--border);
+  color:var(--muted);padding:5px 13px;border-radius:20px;
+  font-size:12.5px;font-weight:700;cursor:pointer;
+  font-family:'Nunito',sans-serif;transition:all .15s;white-space:nowrap;
+}
+.fb:hover{border-color:var(--eb-purple);color:var(--eb-purple);}
+.fb.active{background:var(--eb-purple);border-color:var(--eb-purple);color:white;box-shadow:0 2px 8px rgba(95,69,143,.22);}
+.fb.active.or{background:var(--eb-orange);border-color:var(--eb-orange);box-shadow:0 2px 8px rgba(255,116,38,.22);}
+.fdiv{width:1px;height:20px;background:var(--border);margin:0 2px;flex-shrink:0;}
+
+/* ── CALENDAR VIEW ── */
+.cal-wrap{padding:24px 28px 48px;}
+
+/* top bar */
+.cal-topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:24px;flex-wrap:wrap;gap:12px;
+}
+.cal-title-area{display:flex;align-items:center;gap:14px;}
+.cal-year-badge{
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;
+  color:white;background:linear-gradient(135deg,var(--eb-purple),var(--eb-orange));
+  padding:5px 15px;border-radius:20px;letter-spacing:.3px;
+}
+.cal-nav{display:flex;align-items:center;gap:8px;}
+.cal-nav-btn{
+  width:36px;height:36px;border-radius:9px;
+  background:var(--white);border:1.5px solid var(--border);
+  color:var(--eb-purple);font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s;font-weight:900;
+}
+.cal-nav-btn:hover{background:var(--eb-purple);border-color:var(--eb-purple);color:white;}
+.cal-month-name{
+  font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;
+  color:var(--text);letter-spacing:-.4px;min-width:180px;text-align:center;
+}
+.cal-view-toggle{display:flex;gap:4px;}
+.cvt-btn{
+  background:var(--white);border:1.5px solid var(--border);color:var(--muted);
+  padding:6px 14px;border-radius:8px;font-size:12.5px;font-weight:800;cursor:pointer;
+  font-family:'Nunito',sans-serif;transition:all .15s;
+}
+.cvt-btn.active{background:var(--eb-purple);border-color:var(--eb-purple);color:white;}
+
+/* legend */
+.cal-legend{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  margin-bottom:20px;padding:12px 16px;
+  background:var(--white);border:1.5px solid var(--border);border-radius:12px;
+}
+.cal-legend-title{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-right:4px;}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--text);}
+.leg-pill{width:12px;height:12px;border-radius:3px;}
+
+/* MONTH GRID */
+.cal-grid-wrap{
+  background:var(--white);border:1.5px solid var(--border);border-radius:18px;
+  overflow:hidden;box-shadow:0 2px 16px rgba(95,69,143,.06);
+}
+.cal-weekdays{
+  display:grid;grid-template-columns:repeat(7,1fr);
+  background:var(--eb-purple);
+}
+.cal-wd{
+  padding:10px 0;text-align:center;
+  font-family:'Nunito',sans-serif;font-size:11.5px;font-weight:800;
+  color:rgba(255,255,255,.85);text-transform:uppercase;letter-spacing:.8px;
+}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);}
+.cal-day{
+  min-height:110px;border-right:1px solid var(--border-light);
+  border-bottom:1px solid var(--border-light);
+  padding:8px 7px 6px;transition:background .15s;
+  position:relative;
+}
+.cal-day:nth-child(7n){border-right:none;}
+.cal-day.other-month{background:#faf9fd;}
+.cal-day.other-month .day-num{color:#ccc8db;}
+.cal-day.today{background:linear-gradient(135deg,rgba(95,69,143,.04),rgba(255,116,38,.03));}
+.cal-day.has-events:hover{background:rgba(95,69,143,.03);cursor:pointer;}
+.day-num{
+  font-family:'Nunito',sans-serif;font-size:13px;font-weight:900;
+  color:var(--text);width:26px;height:26px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:5px;transition:all .15s;
+}
+.cal-day.today .day-num{
+  background:var(--eb-purple);color:white;
+  box-shadow:0 2px 8px rgba(95,69,143,.35);
+}
+.cal-day.weekend .day-num{color:var(--muted);}
+.cal-day.weekend{background:#fdfcff;}
+.cal-day.festivo{background:#fffbf0;}
+.cal-day.festivo .day-num{
+  background:var(--eb-orange);color:white;
+  box-shadow:0 2px 8px rgba(255,116,38,.35);
+}
+.cal-day.festivo.today .day-num{
+  background:var(--eb-purple);color:white;
+  box-shadow:0 2px 8px rgba(95,69,143,.35);
+}
+.festivo-label{
+  font-size:9.5px;font-weight:800;color:var(--eb-orange);
+  line-height:1.2;margin-bottom:3px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+/* mini calendar festivo */
+.mini-day.festivo-mini{background:#fff3e0;color:var(--eb-orange);font-weight:900;}
+.mini-day.festivo-mini .ev-dot{background:var(--eb-orange) !important;}
+
+.event-pill{
+  display:flex;align-items:center;gap:4px;
+  font-size:10.5px;font-weight:700;
+  padding:3px 7px;border-radius:5px;margin-bottom:3px;
+  cursor:pointer;transition:opacity .15s;
+  line-height:1.3;font-family:'Nunito',sans-serif;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  max-width:100%;
+}
+.event-pill:hover{opacity:.82;}
+.event-pill .epill-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.event-pill.multi-day-start{border-radius:5px 0 0 5px;padding-right:4px;}
+.event-pill.multi-day-mid{border-radius:0;padding:3px 4px;margin-left:-1px;margin-right:-1px;}
+.event-pill.multi-day-end{border-radius:0 5px 5px 0;padding-left:4px;}
+.more-events{
+  font-size:10px;font-weight:800;color:var(--eb-purple);
+  background:var(--eb-purple-pale);border-radius:4px;
+  padding:2px 6px;cursor:pointer;display:inline-block;margin-top:2px;
+}
+
+/* YEAR VIEW */
+.year-view{display:none;}
+.year-view.active{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
+.mini-month{
+  background:var(--white);border:1.5px solid var(--border);border-radius:14px;
+  overflow:hidden;cursor:pointer;transition:all .2s;
+}
+.mini-month:hover{border-color:var(--eb-purple);box-shadow:0 4px 16px rgba(95,69,143,.1);transform:translateY(-2px);}
+.mini-month-header{
+  background:linear-gradient(135deg,var(--eb-purple),var(--eb-purple-light));
+  padding:10px 14px;display:flex;align-items:center;justify-content:space-between;
+}
+.mini-month-name{font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:900;color:white;}
+.mini-month-count{font-size:11px;font-weight:800;color:rgba(255,255,255,.7);background:rgba(255,255,255,.15);padding:2px 8px;border-radius:10px;}
+.mini-grid{padding:10px;}
+.mini-wdays{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:4px;}
+.mini-wd{text-align:center;font-size:9px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:2px 0;}
+.mini-days{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;}
+.mini-day{
+  aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;border-radius:5px;
+  color:var(--text);position:relative;
+}
+.mini-day.other{color:#d0cce0;}
+.mini-day.weekend{color:var(--muted);}
+.mini-day.has-ev{
+  background:var(--eb-purple-pale);color:var(--eb-purple);font-weight:900;
+}
+.mini-day.today-mini{background:var(--eb-purple);color:white;}
+.mini-day .ev-dot{
+  position:absolute;bottom:1px;left:50%;transform:translateX(-50%);
+  width:4px;height:4px;border-radius:50%;background:var(--eb-orange);
+}
+.mini-month-events{
+  padding:0 10px 10px;display:flex;flex-direction:column;gap:4px;
+}
+.mini-ev-item{
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;color:var(--text);
+  padding:4px 6px;border-radius:6px;background:var(--surface2);
+}
+.mini-ev-dot{width:8px;height:8px;border-radius:3px;flex-shrink:0;}
+
+/* ── DASHBOARD ── */
+.dash-wrap{background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:26px;margin-bottom:28px;}
+.dash-head{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+.dash-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--eb-purple),var(--eb-orange));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;}
+.dash-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;}
+.chart-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px;}
+.chart-lbl{font-size:10.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;font-family:'Nunito',sans-serif;}
+.barchart{display:flex;flex-direction:column;gap:9px;}
+.binfo{display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.btrack{height:7px;background:var(--border-light);border-radius:4px;overflow:hidden;}
+.bfill{height:100%;border-radius:4px;}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;z-index:300;background:rgba(26,18,40,.62);backdrop-filter:blur(7px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .22s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:var(--white);border:1.5px solid var(--border);border-radius:22px;width:100%;max-width:650px;max-height:88vh;overflow-y:auto;transform:translateY(22px);transition:transform .22s;box-shadow:0 24px 60px rgba(95,69,143,.2);}
+.modal-overlay.open .modal{transform:translateY(0);}
+.modal-hdr{padding:22px 26px 16px;border-bottom:1px solid var(--border-light);position:sticky;top:0;background:var(--white);z-index:10;display:flex;align-items:flex-start;justify-content:space-between;}
+.m-close{background:var(--surface2);border:1.5px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:9px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:14px;transition:all .15s;}
+.m-close:hover{border-color:var(--eb-purple);color:var(--eb-purple);}
+.modal-body{padding:20px 26px 26px;}
+.m-sec{margin-bottom:20px;}
+.m-lbl{font-size:10.5px;font-weight:800;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase;margin-bottom:10px;font-family:'Nunito',sans-serif;}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ii label{font-size:10.5px;color:var(--muted);font-weight:700;display:block;margin-bottom:2px;}
+.ii span{font-size:13.5px;color:var(--text);font-weight:600;}
+.ft{font-size:13.5px;color:var(--text);line-height:1.7;}
+.okr-box{background:linear-gradient(135deg,var(--eb-purple-pale),rgba(255,116,38,.05));border:1.5px solid rgba(95,69,143,.18);border-radius:10px;padding:13px 15px;font-size:13px;color:var(--text);line-height:1.6;}
+.metr-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:9px;}
+.mbox{background:var(--surface2);border:1.5px solid var(--border);border-radius:11px;padding:13px;}
+.mbox label{font-size:10px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px;font-family:'Nunito',sans-serif;}
+.mbox .mv{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;color:var(--eb-purple);}
+.contact-box{background:var(--eb-orange-pale);border:1.5px solid rgba(255,116,38,.2);border-radius:10px;padding:11px 14px;font-size:13px;color:var(--text);line-height:1.6;}
+
+/* ── DAY DETAIL MODAL ── */
+.day-modal-content{padding:20px 26px 26px;}
+.day-modal-date{font-family:'Nunito',sans-serif;font-size:28px;font-weight:900;color:var(--eb-purple);letter-spacing:-.5px;margin-bottom:4px;}
+.day-modal-sub{font-size:13px;color:var(--muted);font-weight:600;margin-bottom:20px;}
+.day-ev-list{display:flex;flex-direction:column;gap:10px;}
+.day-ev-card{
+  background:var(--surface2);border:1.5px solid var(--border);
+  border-radius:12px;padding:14px 16px;cursor:pointer;
+  transition:all .15s;border-left:4px solid var(--col,var(--eb-purple));
+}
+.day-ev-card:hover{border-color:var(--eb-purple);background:var(--eb-purple-pale);}
+.day-ev-name{font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;margin-bottom:4px;}
+.day-ev-meta{font-size:12px;color:var(--muted);font-weight:600;display:flex;gap:10px;flex-wrap:wrap;}
+
+/* FOOTER */
+.foot{background:var(--eb-purple);padding:20px 28px;display:flex;align-items:center;gap:10px;}
+.foot p{color:rgba(255,255,255,.55);font-size:12.5px;font-weight:600;}
+.foot strong{color:white;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+
+/* ── NUEVA ACTIVIDAD FORM ── */
+.form-view{padding:32px 28px 64px;}
+.form-card{background:var(--white);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;max-width:860px;margin:0 auto;}
+.form-hero{background:linear-gradient(135deg,var(--eb-purple),var(--eb-purple-light));padding:28px 32px;}
+.form-hero-title{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;color:white;letter-spacing:-.4px;margin-bottom:4px;}
+.form-hero-sub{color:rgba(255,255,255,.65);font-size:13.5px;}
+.form-steps{display:flex;gap:0;border-bottom:1.5px solid var(--border);}
+.form-step-btn{
+  flex:1;padding:14px 8px;text-align:center;cursor:pointer;
+  font-family:'Nunito',sans-serif;font-size:12.5px;font-weight:800;
+  color:var(--muted);border-bottom:3px solid transparent;
+  transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+}
+.form-step-btn.active{color:var(--eb-purple);border-bottom-color:var(--eb-purple);}
+.form-step-btn .step-num{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--border-light);color:var(--muted);
+  font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;
+}
+.form-step-btn.active .step-num{background:var(--eb-purple);color:white;}
+.form-step-btn.done .step-num{background:var(--eb-orange);color:white;}
+.form-body{padding:32px;}
+.form-section{display:none;}
+.form-section.active{display:block;}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:7px;font-family:'Nunito',sans-serif;}
+.form-group label span.req{color:var(--eb-orange);}
+.form-input,.form-select,.form-textarea{
+  width:100%;background:var(--surface2);border:1.5px solid var(--border);
+  border-radius:10px;padding:11px 14px;
+  font-size:14px;font-family:'Nunito Sans',sans-serif;color:var(--text);
+  transition:border-color .15s,box-shadow .15s;outline:none;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{
+  border-color:var(--eb-purple);
+  box-shadow:0 0 0 3px rgba(95,69,143,.1);
+}
+.form-textarea{resize:vertical;min-height:90px;line-height:1.6;}
+.form-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237b7496' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.form-hint{font-size:11.5px;color:var(--muted);margin-top:5px;font-weight:600;}
+.form-section-title{font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;color:var(--text);margin-bottom:20px;padding-bottom:12px;border-bottom:1.5px solid var(--border-light);display:flex;align-items:center;gap:8px;}
+.form-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:24px;border-top:1.5px solid var(--border-light);}
+.btn-form-back{background:var(--surface2);border:1.5px solid var(--border);color:var(--muted);padding:10px 22px;border-radius:10px;font-size:13.5px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .15s;}
+.btn-form-back:hover{border-color:var(--eb-purple);color:var(--eb-purple);}
+.btn-form-next{background:linear-gradient(135deg,var(--eb-purple),var(--eb-purple-light));color:white;border:none;padding:11px 28px;border-radius:10px;font-size:13.5px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;box-shadow:0 2px 10px rgba(95,69,143,.28);transition:opacity .15s,transform .15s;}
+.btn-form-next:hover{opacity:.88;transform:translateY(-1px);}
+.btn-form-save{background:linear-gradient(135deg,var(--eb-orange),var(--eb-orange-light));color:white;border:none;padding:11px 28px;border-radius:10px;font-size:13.5px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;box-shadow:0 2px 10px rgba(255,116,38,.28);transition:opacity .15s,transform .15s;}
+.btn-form-save:hover{opacity:.88;transform:translateY(-1px);}
+.step-progress{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--muted);}
+
+/* ── RESOURCES SECTION IN MODAL ── */
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:12px;}
+.res-img-card{
+  aspect-ratio:4/3;border-radius:10px;overflow:hidden;
+  border:1.5px solid var(--border);position:relative;cursor:pointer;
+  background:var(--surface2);
+}
+.res-img-card img{width:100%;height:100%;object-fit:cover;display:block;}
+.res-img-card:hover .res-img-overlay{opacity:1;}
+.res-img-overlay{position:absolute;inset:0;background:rgba(95,69,143,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:20px;}
+.res-link-item{
+  display:flex;align-items:center;gap:10px;
+  background:var(--surface2);border:1.5px solid var(--border);
+  border-radius:10px;padding:10px 14px;text-decoration:none;
+  transition:all .15s;cursor:pointer;
+}
+.res-link-item:hover{border-color:var(--eb-orange);background:var(--eb-orange-pale);}
+.res-link-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--eb-orange-pale);display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.res-link-text{flex:1;min-width:0;}
+.res-link-label{font-size:12.5px;font-weight:800;color:var(--text);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.res-link-url{font-size:11px;color:var(--muted);font-weight:600;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.res-empty{text-align:center;padding:24px;color:var(--muted);font-size:13px;font-weight:600;background:var(--surface2);border-radius:10px;border:1.5px dashed var(--border);}
+.upload-zone{
+  border:2px dashed var(--border);border-radius:12px;padding:24px;
+  text-align:center;cursor:pointer;transition:all .15s;background:var(--surface2);
+  margin-bottom:12px;
+}
+.upload-zone:hover{border-color:var(--eb-purple);background:var(--eb-purple-pale);}
+.upload-zone-icon{font-size:28px;margin-bottom:8px;}
+.upload-zone-text{font-size:13px;font-weight:700;color:var(--eb-purple);margin-bottom:4px;}
+.upload-zone-sub{font-size:11.5px;color:var(--muted);font-weight:600;}
+.link-input-row{display:flex;gap:8px;margin-bottom:8px;}
+.link-input-row .form-input{flex:1;}
+.tag-res{display:inline-flex;align-items:center;gap:5px;background:var(--eb-orange-pale);border:1.5px solid rgba(255,116,38,.2);border-radius:20px;padding:3px 10px 3px 8px;font-size:12px;font-weight:700;color:var(--eb-orange);}
+.tag-res .tag-x{cursor:pointer;font-size:14px;line-height:1;margin-left:2px;opacity:.7;}
+.tag-res .tag-x:hover{opacity:1;}
+
+/* SUCCESS STATE */
+.form-success{text-align:center;padding:48px 32px;}
+.form-success-icon{font-size:56px;margin-bottom:16px;}
+.form-success-title{font-family:'Nunito',sans-serif;font-size:24px;font-weight:900;color:var(--eb-purple);margin-bottom:8px;}
+.form-success-sub{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:28px;line-height:1.6;}
+
+/* ── EDIT MODE IN MODAL ── */
+.modal-edit-bar{
+  background:linear-gradient(135deg,rgba(95,69,143,.06),rgba(255,116,38,.04));
+  border-bottom:1.5px solid var(--border-light);
+  padding:10px 26px;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;flex-wrap:wrap;
+}
+.edit-mode-badge{
+  display:flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:800;color:var(--eb-orange);
+  background:var(--eb-orange-pale);border:1.5px solid rgba(255,116,38,.25);
+  padding:5px 14px;border-radius:20px;font-family:'Nunito',sans-serif;
+}
+.btn-edit-toggle{
+  background:var(--surface2);border:1.5px solid var(--border);
+  color:var(--eb-purple);padding:7px 16px;border-radius:9px;
+  font-size:12.5px;font-weight:800;cursor:pointer;
+  font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:6px;
+  transition:all .15s;
+}
+.btn-edit-toggle:hover{background:var(--eb-purple);color:white;border-color:var(--eb-purple);}
+.btn-save-edit{
+  background:linear-gradient(135deg,var(--eb-orange),var(--eb-orange-light));
+  color:white;border:none;padding:7px 18px;border-radius:9px;
+  font-size:12.5px;font-weight:800;cursor:pointer;
+  font-family:'Nunito',sans-serif;display:flex;align-items:center;gap:6px;
+  box-shadow:0 2px 8px rgba(255,116,38,.3);transition:opacity .15s;
+}
+.btn-save-edit:hover{opacity:.88;}
+.btn-discard-edit{
+  background:none;border:1.5px solid var(--border);
+  color:var(--muted);padding:7px 14px;border-radius:9px;
+  font-size:12px;font-weight:800;cursor:pointer;
+  font-family:'Nunito',sans-serif;transition:all .15s;
+}
+.btn-discard-edit:hover{border-color:var(--muted);color:var(--text);}
+
+/* edit field styling inside modal */
+.edit-field{
+  width:100%;background:var(--white);border:1.5px solid var(--eb-purple);
+  border-radius:8px;padding:8px 11px;
+  font-size:13.5px;font-family:'Nunito Sans',sans-serif;color:var(--text);
+  transition:box-shadow .15s;outline:none;resize:vertical;
+}
+.edit-field:focus{box-shadow:0 0 0 3px rgba(95,69,143,.12);}
+.edit-select{
+  width:100%;background:var(--white);border:1.5px solid var(--eb-purple);
+  border-radius:8px;padding:8px 11px;
+  font-size:13.5px;font-family:'Nunito Sans',sans-serif;color:var(--text);
+  cursor:pointer;outline:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237b7496' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;
+}
+.edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:4px;}
+.edit-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:4px;}
+.e-lbl{font-size:10.5px;font-weight:800;color:var(--eb-purple);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;font-family:'Nunito',sans-serif;display:block;}
+.e-group{margin-bottom:14px;}
+
+/* edit resources */
+.edit-res-row{display:flex;gap:8px;margin-bottom:8px;align-items:center;}
+.edit-res-row .edit-field{flex:1;}
+.res-img-del{position:absolute;top:5px;right:5px;background:rgba(26,18,40,.7);color:white;border:none;border-radius:6px;width:24px;height:24px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;}
+
+/* ── API SYNC ── */
+.sync-overlay{position:fixed;inset:0;background:rgba(26,18,40,.55);z-index:99999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
+.sync-box{background:var(--white);border-radius:18px;padding:32px 40px;text-align:center;box-shadow:0 20px 60px rgba(95,69,143,.25);min-width:260px;}
+.sync-spinner{width:40px;height:40px;border:3px solid var(--eb-orange-pale);border-top-color:var(--eb-orange);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 16px;}
+.sync-msg{font-family:'Nunito',sans-serif;font-weight:800;color:var(--eb-purple);font-size:15px;}
+.sync-sub{font-family:'Nunito Sans',sans-serif;font-size:12px;color:var(--muted);margin-top:6px;}
+.api-status{position:fixed;bottom:20px;right:20px;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:8px 14px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;display:flex;align-items:center;gap:7px;box-shadow:0 2px 12px rgba(0,0,0,.08);z-index:1000;transition:opacity .3s;}
+.api-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.api-dot.green{background:#1a8f48;} .api-dot.red{background:#e53e3e;} .api-dot.yellow{background:#d69e2e;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" onclick="showView('home',this,event)">
+    <div class="logo-bolt">⚡</div>
+    <span style="color:var(--eb-purple)">ener</span><span style="color:var(--eb-orange)">Bit</span>
+    <span style="color:var(--muted);font-weight:500;font-size:13px;margin-left:4px">· Brand Hub</span>
+  </a>
+  <ul class="nav-links">
+    <li><a onclick="showView('home',this,event)" class="active">Inicio</a></li>
+    <li><a onclick="showView('calendar',this,event)">Calendario</a></li>
+    <li><a onclick="showView('actividades',this,event)">Actividades</a></li>
+    <li><a onclick="showView('dashboard',this,event)">Dashboard</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="btn-add" onclick="showView('nueva',null,event)">⚡ Nueva actividad</button>
+  </div>
+</nav>
+
+<!-- ════════════════ HOME VIEW ════════════════ -->
+<div id="view-home" class="view active">
+  <section class="hero">
+    <div class="hero-bolt1">⚡</div>
+    <div class="hero-eyebrow">⚡ Estrategia de marca · 2026</div>
+    <h1 class="hero-title">enerBit en el mercado<br><span class="hi">— calendario real 2026</span></h1>
+    <p class="hero-sub">Todas las actividades de presencia de marca: ferias, eventos, experiencias y patrocinios. Datos del calendario oficial del equipo.</p>
+    <div class="kpi-row">
+      <div class="kpi-card"><div class="kpi-label">Actividades totales</div><div class="kpi-value"><span class="acc">10</span></div><div class="kpi-sub">en el calendario 2026</div></div>
+      <div class="kpi-card"><div class="kpi-label">Inversión registrada</div><div class="kpi-value">$<span class="acc">96.6</span>M</div><div class="kpi-sub">COP con IVA (parcial)</div></div>
+      <div class="kpi-card"><div class="kpi-label">Confirmadas</div><div class="kpi-value"><span class="acc">8</span></div><div class="kpi-sub">1 negociando · 1 descartada</div></div>
+      <div class="kpi-card"><div class="kpi-label">Ciudades</div><div class="kpi-value"><span class="acc">4</span></div><div class="kpi-sub">MDE · BOG · CLO · CTG</div></div>
+    </div>
+  </section>
+  <div class="main">
+    <div class="sec-head">
+      <h2 class="sec-title">⚡ Próximas actividades</h2>
+      <span class="sec-count" id="home-count"></span>
+      <span id="home-window" style="font-size:12px;color:var(--muted);font-weight:600;margin-left:2px"></span>
+    </div>
+    <div id="home-empty" style="display:none;text-align:center;padding:56px 24px">
+      <div style="font-size:44px;margin-bottom:14px">⚡</div>
+      <div style="font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;color:var(--eb-purple);margin-bottom:8px">Sin eventos en los próximos 30 días</div>
+      <div style="font-size:14px;color:var(--muted);font-weight:600">Revisa el <span onclick="showView('calendar',null,event)" style="color:var(--eb-orange);cursor:pointer;text-decoration:underline">calendario completo</span> para ver todas las actividades del año.</div>
+    </div>
+    <div class="grid" id="home-cards"></div>
+  </div>
+</div>
+
+<!-- ════════════════ CALENDAR VIEW ════════════════ -->
+<div id="view-calendar" class="view">
+  <div class="cal-wrap">
+    <div class="cal-topbar">
+      <div class="cal-title-area">
+        <div class="cal-year-badge">⚡ 2026</div>
+        <div class="cal-nav">
+          <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
+          <div class="cal-month-name" id="cal-month-label">Enero 2026</div>
+          <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div class="cal-view-toggle">
+          <button class="cvt-btn active" id="btn-month" onclick="setCalView('month',this)">Mes</button>
+          <button class="cvt-btn" id="btn-year" onclick="setCalView('year',this)">Año completo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- legend -->
+    <div class="cal-legend">
+      <span class="cal-legend-title">Tipo:</span>
+      <div class="leg-item"><div class="leg-pill" style="background:#5f458f"></div>Stand</div>
+      <div class="leg-item"><div class="leg-pill" style="background:#ff7426"></div>Exp. de marca</div>
+      <div class="leg-item"><div class="leg-pill" style="background:#2eb86e"></div>Asistentes</div>
+      <div class="leg-item"><div class="leg-pill" style="background:#0ea5b5"></div>Patrocinadores</div>
+      <div class="leg-item"><div class="leg-pill" style="background:#e040a0"></div>Rueda neg.</div>
+      <div class="leg-item"><div class="leg-pill" style="background:#8b7ab8"></div>Por definir</div>
+      <div style="width:1px;height:16px;background:var(--border);margin:0 4px"></div>
+      <div class="leg-item"><div class="leg-pill" style="background:var(--eb-orange);border-radius:50%"></div>Festivo 🇨🇴</div>
+    </div>
+
+    <!-- MONTH VIEW -->
+    <div id="cal-month-view">
+      <div class="cal-grid-wrap">
+        <div class="cal-weekdays">
+          <div class="cal-wd">Dom</div><div class="cal-wd">Lun</div><div class="cal-wd">Mar</div>
+          <div class="cal-wd">Mié</div><div class="cal-wd">Jue</div><div class="cal-wd">Vie</div>
+          <div class="cal-wd">Sáb</div>
+        </div>
+        <div class="cal-days" id="cal-days-grid"></div>
+      </div>
+    </div>
+
+    <!-- YEAR VIEW -->
+    <div class="year-view" id="cal-year-view"></div>
+  </div>
+</div>
+
+<!-- ════════════════ ACTIVIDADES VIEW ════════════════ -->
+<div id="view-actividades" class="view">
+  <!-- FILTROS STICKY -->
+  <div class="filters" id="act-filters-bar">
+    <button class="fb active" onclick="fAct(this,'all')">Todos</button>
+    <div class="fdiv"></div>
+    <button class="fb" onclick="fAct(this,'Stand')">🏗️ Stand</button>
+    <button class="fb" onclick="fAct(this,'Experiencia de marca')">✨ Exp. de marca</button>
+    <button class="fb" onclick="fAct(this,'Asistentes')">🎟️ Asistentes</button>
+    <button class="fb" onclick="fAct(this,'Patrocinadores')">🏆 Patrocinio</button>
+    <button class="fb" onclick="fAct(this,'Rueda de negocios')">🤝 Rueda neg.</button>
+    <div class="fdiv"></div>
+    <button class="fb" onclick="fAct(this,'Constructores')">🏗 Constructores</button>
+    <button class="fb" onclick="fAct(this,'Inversionistas')">💼 Inversión</button>
+    <button class="fb" onclick="fAct(this,'B2B')">⚡ B2B</button>
+    <div class="fdiv"></div>
+    <button class="fb" onclick="fAct(this,'Medellín')">📍 Medellín</button>
+    <button class="fb" onclick="fAct(this,'Bogota')">📍 Bogotá</button>
+    <button class="fb" onclick="fAct(this,'Cali')">📍 Cali</button>
+    <button class="fb" onclick="fAct(this,'Cartagena')">📍 Cartagena</button>
+    <div class="fdiv"></div>
+    <button class="fb" onclick="fAct(this,'Comprado')">✅ Comprado</button>
+    <button class="fb" onclick="fAct(this,'Negociando')">🟡 Negociando</button>
+    <button class="fb" onclick="fAct(this,'No participamos')">⏭ No participamos</button>
+  </div>
+  <div class="main">
+    <div class="sec-head">
+      <h2 class="sec-title">⚡ Todas las actividades</h2>
+      <span class="sec-count" id="act-count">10 actividades</span>
+    </div>
+    <div class="grid" id="act-cards"></div>
+  </div>
+</div>
+
+<!-- ════════════════ DASHBOARD VIEW ════════════════ -->
+<div id="view-dashboard" class="view">
+  <div class="main">
+    <div class="sec-head"><h2 class="sec-title">📊 Dashboard estratégico</h2></div>
+    <div class="dash-wrap">
+      <div class="dash-head"><div class="dash-icon">📊</div><div class="dash-title">Distribución de actividades — 2026</div></div>
+      <div class="chart-row">
+        <div>
+          <div class="chart-lbl">Por tipo de participación</div>
+          <div class="barchart">
+            <div><div class="binfo"><span>Stand</span><span>3</span></div><div class="btrack"><div class="bfill" style="width:75%;background:var(--eb-purple)"></div></div></div>
+            <div><div class="binfo"><span>Exp. de marca</span><span>3</span></div><div class="btrack"><div class="bfill" style="width:75%;background:var(--eb-orange)"></div></div></div>
+            <div><div class="binfo"><span>Asistentes</span><span>1</span></div><div class="btrack"><div class="bfill" style="width:25%;background:#2eb86e"></div></div></div>
+            <div><div class="binfo"><span>Patrocinadores</span><span>1</span></div><div class="btrack"><div class="bfill" style="width:25%;background:#0ea5b5"></div></div></div>
+            <div><div class="binfo"><span>Rueda neg.</span><span>1</span></div><div class="btrack"><div class="bfill" style="width:25%;background:#e040a0"></div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="chart-lbl">Por sector / Buyer</div>
+          <div class="barchart">
+            <div><div class="binfo"><span>Constructores</span><span>6</span></div><div class="btrack"><div class="bfill" style="width:90%;background:var(--eb-purple)"></div></div></div>
+            <div><div class="binfo"><span>Inversionistas</span><span>3</span></div><div class="btrack"><div class="bfill" style="width:45%;background:var(--eb-orange)"></div></div></div>
+            <div><div class="binfo"><span>B2B / Comerciantes</span><span>1</span></div><div class="btrack"><div class="bfill" style="width:17%;background:#2eb86e"></div></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="chart-lbl">Por ciudad</div>
+          <div class="barchart">
+            <div><div class="binfo"><span>Medellín</span><span>6</span></div><div class="btrack"><div class="bfill" style="width:90%;background:var(--eb-purple)"></div></div></div>
+            <div><div class="binfo"><span>Cartagena</span><span>2</span></div><div class="btrack"><div class="bfill" style="width:32%;background:var(--eb-orange)"></div></div></div>
+            <div><div class="binfo"><span>Bogotá</span><span>1</span></div><div class="btrack"><div class="bfill" style="width:17%;background:#0ea5b5"></div></div></div>
+            <div><div class="binfo"><span>Cali</span><span>1</span></div><div class="btrack"><div class="bfill" style="width:17%;background:#2eb86e"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- timeline strip -->
+    <div class="sec-head" style="margin-top:8px"><h2 class="sec-title">📅 Timeline del año</h2></div>
+    <div class="dash-wrap" style="overflow-x:auto">
+      <div style="display:flex;gap:0;min-width:700px" id="timeline-strip"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════ NUEVA ACTIVIDAD VIEW ════════════════ -->
+<div id="view-nueva" class="view">
+  <div class="form-view">
+    <div class="sec-head" style="max-width:860px;margin:0 auto 20px">
+      <h2 class="sec-title">⚡ Nueva actividad</h2>
+      <span class="sec-count" id="form-step-label">Paso 1 de 4</span>
+    </div>
+    <div class="form-card">
+      <div class="form-hero">
+        <div class="form-hero-title">Registrar nueva actividad de marca</div>
+        <div class="form-hero-sub">Completa los 4 pasos para que la actividad aparezca en el calendario, las tarjetas y el dashboard.</div>
+      </div>
+
+      <!-- STEP TABS -->
+      <div class="form-steps">
+        <button class="form-step-btn active" id="stab-1" onclick="goStep(1)">
+          <div class="step-num">1</div>Identificación
+        </button>
+        <button class="form-step-btn" id="stab-2" onclick="goStep(2)">
+          <div class="step-num">2</div>Estrategia
+        </button>
+        <button class="form-step-btn" id="stab-3" onclick="goStep(3)">
+          <div class="step-num">3</div>Equipo y métricas
+        </button>
+        <button class="form-step-btn" id="stab-4" onclick="goStep(4)">
+          <div class="step-num">4</div>Recursos
+        </button>
+      </div>
+
+      <div class="form-body">
+
+        <!-- SUCCESS -->
+        <div id="form-success" style="display:none" class="form-success">
+          <div class="form-success-icon">⚡</div>
+          <div class="form-success-title">¡Actividad creada!</div>
+          <div class="form-success-sub">La actividad fue agregada al Brand Hub.<br>Ya aparece en el calendario, las tarjetas y el dashboard.</div>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <button class="btn-form-next" onclick="showView('actividades',null,event)">Ver actividades</button>
+            <button class="btn-form-back" onclick="resetForm()">+ Agregar otra</button>
+          </div>
+        </div>
+
+        <!-- STEP 1: IDENTIFICACIÓN -->
+        <div class="form-section active" id="fsec-1">
+          <div class="form-section-title">📍 Información básica del evento</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nombre del evento </label>
+              <input class="form-input" id="f-nombre" placeholder="Ej: Feria Expoconstrucción 2026" />
+            </div>
+            <div class="form-group">
+              <label>Tipo de participación </label>
+              <select class="form-select" id="f-tipo">
+                <option value="">Seleccionar...</option>
+                <option>Stand</option>
+                <option>Experiencia de marca</option>
+                <option>Asistentes</option>
+                <option>Patrocinadores</option>
+                <option>Rueda de negocios</option>
+                <option>Webinar</option>
+                <option>Activación</option>
+                <option>Alianza</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Estado </label>
+              <select class="form-select" id="f-estado">
+                <option value="">Seleccionar...</option>
+                <option>Comprado</option>
+                <option>Negociando</option>
+                <option>No participamos</option>
+                <option>Ejecutado</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Ciudad </label>
+              <input class="form-input" id="f-ciudad" placeholder="Ej: Medellín" />
+            </div>
+          </div>
+          <div class="form-row-3">
+            <div class="form-group">
+              <label>Fecha inicio </label>
+              <input class="form-input" id="f-fecha-s" type="date" />
+            </div>
+            <div class="form-group">
+              <label>Fecha fin</label>
+              <input class="form-input" id="f-fecha-e" type="date" />
+              <div class="form-hint">Si es 1 día, deja igual a inicio</div>
+            </div>
+            <div class="form-group">
+              <label>Venue / Lugar</label>
+              <input class="form-input" id="f-venue" placeholder="Ej: Corferias, Salón B" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Sector objetivo </label>
+              <select class="form-select" id="f-sector">
+                <option value="">Seleccionar...</option>
+                <option>Constructores</option>
+                <option>Inversionistas</option>
+                <option>B2B</option>
+                <option>Comerciantes</option>
+                <option>Agroindustrial</option>
+                <option>Tecnología</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Buyer / Audiencia</label>
+              <input class="form-input" id="f-buyer" placeholder="Ej: Constructores, Empresas" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Comentario interno</label>
+            <input class="form-input" id="f-comentario" placeholder="Notas para el equipo (ej: se compró con saldo 2025)" />
+          </div>
+          <div class="form-nav">
+            <div class="step-progress">Paso 1 de 4</div>
+            <button class="btn-form-next" onclick="goStep(2)">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: ESTRATEGIA -->
+        <div class="form-section" id="fsec-2">
+          <div class="form-section-title">🎯 Información estratégica</div>
+          <div class="form-group">
+            <label>Objetivo estratégico </label>
+            <textarea class="form-textarea" id="f-objetivo" placeholder="¿Por qué estamos en este evento? ¿Qué queremos lograr con la presencia de enerBit?"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Línea estratégica</label>
+            <select class="form-select" id="f-linea">
+              <option value="">Seleccionar...</option>
+              <option>Posicionamiento y atracción</option>
+              <option>Generación de demanda</option>
+              <option>Networking</option>
+              <option>Atracción</option>
+              <option>Thought Leadership</option>
+              <option>Retención / Expansión</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Descripción del evento</label>
+            <textarea class="form-textarea" id="f-descripcion" placeholder="¿Qué es este evento? Contexto para el equipo que no lo conoce."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Perfil de asistentes / audiencia</label>
+            <textarea class="form-textarea" id="f-perfil" placeholder="¿Quiénes asistirán al evento? Cargos, sectores, tipo de empresa." style="min-height:70px"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Conceptos / Activación en campo</label>
+            <textarea class="form-textarea" id="f-conceptos" placeholder="¿Qué se hará físicamente? Stand, materiales, actividades, tótem, bakcing, etc." style="min-height:70px"></textarea>
+          </div>
+          <div class="form-nav">
+            <button class="btn-form-back" onclick="goStep(1)">← Atrás</button>
+            <div class="step-progress">Paso 2 de 4</div>
+            <button class="btn-form-next" onclick="goStep(3)">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: EQUIPO Y MÉTRICAS -->
+        <div class="form-section" id="fsec-3">
+          <div class="form-section-title">👥 Equipo y métricas esperadas</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Responsable interno </label>
+              <input class="form-input" id="f-responsable" placeholder="Nombre y cargo" />
+            </div>
+            <div class="form-group">
+              <label>Contacto de negociación</label>
+              <input class="form-input" id="f-contacto" placeholder="Nombre, cargo y email del proveedor" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Equipo involucrado</label>
+            <input class="form-input" id="f-equipo" placeholder="Ej: 2 Ventas, 1 Marketing, 1 Producto" />
+          </div>
+          <div class="form-section-title" style="margin-top:24px;font-size:14px">📊 Métricas esperadas</div>
+          <div class="form-row-3">
+            <div class="form-group">
+              <label>Inversión con IVA (COP)</label>
+              <input class="form-input" id="f-inversion" type="number" placeholder="Ej: 4760000" />
+            </div>
+            <div class="form-group">
+              <label>Leads esperados</label>
+              <input class="form-input" id="f-leads" type="number" placeholder="Ej: 30" />
+            </div>
+            <div class="form-group">
+              <label>Impacto / Asistentes evento</label>
+              <input class="form-input" id="f-impacto" placeholder="Ej: 500 personas" />
+            </div>
+          </div>
+          <div class="form-nav">
+            <button class="btn-form-back" onclick="goStep(2)">← Atrás</button>
+            <div class="step-progress">Paso 3 de 4</div>
+            <button class="btn-form-next" onclick="goStep(4)">Continuar →</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: RECURSOS -->
+        <div class="form-section" id="fsec-4">
+          <div class="form-section-title">📎 Recursos del evento</div>
+
+          <div class="form-group">
+            <label>Fotos del evento (JPG / PNG)</label>
+            <div class="upload-zone" onclick="document.getElementById('f-imgs').click()">
+              <div class="upload-zone-icon">📸</div>
+              <div class="upload-zone-text">Arrastra fotos aquí o haz clic para subir</div>
+              <div class="upload-zone-sub">JPG, PNG — cómo quedó el stand, la experiencia, el equipo</div>
+            </div>
+            <input type="file" id="f-imgs" multiple accept="image/*" style="display:none" onchange="handleImgs(event)" />
+            <div id="imgs-preview" class="res-grid"></div>
+          </div>
+
+          <div class="form-group">
+            <label>Links de menciones en medios o redes sociales</label>
+            <div class="form-hint" style="margin-bottom:10px">Pega el link donde nos nombraron, compartieron una foto o hicieron reseña del evento</div>
+            <div id="links-container">
+              <div class="link-input-row">
+                <input class="form-input" placeholder="Ej: https://instagram.com/p/... o https://eltiempo.com/..." id="link-input-0" />
+                <select class="form-select" id="link-type-0" style="width:140px;flex-shrink:0">
+                  <option>Instagram</option>
+                  <option>LinkedIn</option>
+                  <option>Twitter / X</option>
+                  <option>Facebook</option>
+                  <option>Prensa / Blog</option>
+                  <option>YouTube</option>
+                  <option>TikTok</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+            </div>
+            <button onclick="addLinkRow()" style="background:none;border:1.5px dashed var(--border);color:var(--eb-purple);padding:7px 16px;border-radius:8px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;margin-top:4px;transition:all .15s" onmouseover="this.style.borderColor='var(--eb-purple)'" onmouseout="this.style.borderColor='var(--border)'">+ Agregar otro link</button>
+          </div>
+
+          <div class="form-group">
+            <label>Links de insumos / brief (SharePoint, Drive, etc.)</label>
+            <input class="form-input" id="f-brief-link" placeholder="Ej: https://celsia.sharepoint.com/..." />
+          </div>
+
+          <div class="form-nav">
+            <button class="btn-form-back" onclick="goStep(3)">← Atrás</button>
+            <div class="step-progress">Paso 4 de 4</div>
+            <button class="btn-form-save" onclick="saveActivity()">⚡ Guardar actividad</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="foot"><span style="font-size:22px">⚡</span><p><strong>enerBit Brand Hub</strong> · Datos sincronizados desde Calendario_de_eventos.xlsx · 2026</p></div>
+
+<!-- ── MODAL evento ── -->
+<div class="modal-overlay" id="mo" onclick="cm(event)">
+  <div class="modal">
+    <div class="modal-hdr">
+      <div>
+        <div style="display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-bottom:10px">
+          <span id="mt" class="type-badge"></span>
+          <span id="ms" class="sbadge"></span>
+          <span id="msec" style="font-size:11px;font-weight:800;color:var(--eb-orange);background:var(--eb-orange-pale);padding:3px 11px;border-radius:20px;font-family:'Nunito',sans-serif;"></span>
+        </div>
+        <h2 id="mn" style="font-family:'Nunito',sans-serif;font-size:21px;font-weight:900;letter-spacing:-.4px;color:var(--text);"></h2>
+        <div id="mobj" style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:800;color:var(--eb-orange);background:var(--eb-orange-pale);border:1px solid rgba(255,116,38,.18);padding:3px 9px;border-radius:5px;margin-top:7px;font-family:'Nunito',sans-serif;"></div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:flex-start;flex-shrink:0;margin-left:14px">
+        <button class="btn-edit-toggle" id="btn-edit-toggle" onclick="toggleEditMode()">✏️ Editar</button>
+        <button class="m-close" onclick="cmd()">✕</button>
+      </div>
+    </div>
+    <!-- edit mode bar (hidden by default) -->
+    <div class="modal-edit-bar" id="modal-edit-bar" style="display:none">
+      <div class="edit-mode-badge">✏️ Modo edición activo</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn-discard-edit" onclick="discardEdit()">Descartar</button>
+        <button class="btn-save-edit" onclick="saveEdit()">⚡ Guardar cambios</button>
+      </div>
+    </div>
+    <div class="modal-body" id="modal-body-content">
+
+      <!-- ═══ VIEW MODE ═══ -->
+      <div id="modal-view-mode">
+        <div id="mcom"></div>
+        <div class="m-sec">
+          <div class="m-lbl">📍 Información del evento</div>
+          <div class="ig">
+            <div class="ii"><label>Fecha</label><span id="mf"></span></div>
+            <div class="ii"><label>Ciudad</label><span id="mci"></span></div>
+            <div class="ii"><label>Buyer / Audiencia</label><span id="mbu"></span></div>
+            <div class="ii"><label>Inversión (con IVA)</label><span id="minv" style="color:var(--eb-purple);font-weight:900;font-family:'Nunito',sans-serif;font-size:16px;"></span></div>
+          </div>
+        </div>
+        <div class="m-sec" id="mdesc-sec"><div class="m-lbl">📝 Descripción del evento</div><p class="ft" id="mdesc"></p></div>
+        <div class="m-sec" id="mperf-sec"><div class="m-lbl">👥 Perfil de asistentes</div><p class="ft" id="mperf"></p></div>
+        <div class="m-sec" id="mconc-sec"><div class="m-lbl">⚡ Activación en campo</div><div class="okr-box" id="mconc"></div></div>
+        <div class="m-sec">
+          <div class="m-lbl">📊 Métricas</div>
+          <div class="metr-row" id="mmet"></div>
+        </div>
+        <div class="m-sec" id="mcont-sec"><div class="m-lbl">📞 Contacto de negociación</div><div class="contact-box" id="mcont"></div></div>
+        <div class="m-sec">
+          <div class="m-lbl">📸 Fotos del evento</div>
+          <div id="m-imgs-grid" class="res-grid"></div>
+          <div id="m-imgs-empty" class="res-empty" style="display:none">Aún no hay fotos cargadas para esta actividad.</div>
+        </div>
+        <div class="m-sec">
+          <div class="m-lbl">🔗 Menciones en medios y redes</div>
+          <div id="m-links-list" style="display:flex;flex-direction:column;gap:8px"></div>
+          <div id="m-links-empty" class="res-empty" style="display:none">Aún no hay links registrados para esta actividad.</div>
+        </div>
+      </div>
+
+      <!-- ═══ EDIT MODE ═══ -->
+      <div id="modal-edit-mode" style="display:none">
+
+        <div class="m-sec">
+          <div class="m-lbl" style="color:var(--eb-purple)">📍 Identificación</div>
+          <div class="e-group">
+            <span class="e-lbl">Nombre del evento</span>
+            <input class="edit-field" id="e-nombre" />
+          </div>
+          <div class="edit-grid">
+            <div class="e-group">
+              <span class="e-lbl">Tipo de participación</span>
+              <select class="edit-select" id="e-tipo">
+                <option value="">Sin definir</option>
+                <option>Stand</option><option>Experiencia de marca</option>
+                <option>Asistentes</option><option>Patrocinadores</option>
+                <option>Rueda de negocios</option><option>Webinar</option>
+                <option>Activación</option><option>Alianza</option>
+              </select>
+            </div>
+            <div class="e-group">
+              <span class="e-lbl">Estado</span>
+              <select class="edit-select" id="e-estado">
+                <option>Comprado</option><option>Negociando</option>
+                <option>No participamos</option><option>Ejecutado</option>
+              </select>
+            </div>
+          </div>
+          <div class="edit-grid">
+            <div class="e-group">
+              <span class="e-lbl">Ciudad</span>
+              <input class="edit-field" id="e-ciudad" />
+            </div>
+            <div class="e-group">
+              <span class="e-lbl">Venue / Lugar</span>
+              <input class="edit-field" id="e-venue" placeholder="Ej: Corferias, Salón B" />
+            </div>
+          </div>
+          <div class="edit-grid-3">
+            <div class="e-group">
+              <span class="e-lbl">Fecha inicio</span>
+              <input class="edit-field" id="e-fecha-s" type="date" />
+            </div>
+            <div class="e-group">
+              <span class="e-lbl">Fecha fin</span>
+              <input class="edit-field" id="e-fecha-e" type="date" />
+            </div>
+            <div class="e-group">
+              <span class="e-lbl">Sector objetivo</span>
+              <select class="edit-select" id="e-sector">
+                <option>Constructores</option><option>Inversionistas</option>
+                <option>B2B</option><option>Comerciantes</option>
+                <option>Agroindustrial</option><option>Tecnología</option><option>Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="edit-grid">
+            <div class="e-group">
+              <span class="e-lbl">Buyer / Audiencia</span>
+              <input class="edit-field" id="e-buyer" />
+            </div>
+            <div class="e-group">
+              <span class="e-lbl">Comentario interno</span>
+              <input class="edit-field" id="e-comentario" placeholder="Nota para el equipo" />
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sec">
+          <div class="m-lbl" style="color:var(--eb-purple)">🎯 Estrategia</div>
+          <div class="e-group">
+            <span class="e-lbl">Objetivo / Línea estratégica</span>
+            <select class="edit-select" id="e-objetivo">
+              <option>Posicionamiento y atracción</option><option>Generación de demanda</option>
+              <option>Networking</option><option>Atracción</option>
+              <option>Thought Leadership</option><option>Retención / Expansión</option>
+            </select>
+          </div>
+          <div class="e-group">
+            <span class="e-lbl">Descripción del evento</span>
+            <textarea class="edit-field" id="e-descripcion" rows="4"></textarea>
+          </div>
+          <div class="e-group">
+            <span class="e-lbl">Perfil de asistentes</span>
+            <textarea class="edit-field" id="e-perfil" rows="3"></textarea>
+          </div>
+          <div class="e-group">
+            <span class="e-lbl">Activación / Conceptos en campo</span>
+            <textarea class="edit-field" id="e-conceptos" rows="3"></textarea>
+          </div>
+        </div>
+
+        <div class="m-sec">
+          <div class="m-lbl" style="color:var(--eb-purple)">👥 Equipo y métricas</div>
+          <div class="edit-grid">
+            <div class="e-group">
+              <span class="e-lbl">Responsable interno</span>
+              <input class="edit-field" id="e-responsable" />
+            </div>
+            <div class="e-group">
+              <span class="e-lbl">Contacto de negociación</span>
+              <input class="edit-field" id="e-contacto" />
+            </div>
+          </div>
+          <div class="edit-grid-3">
+            <div class="e-group">
+              <span class="e-lbl">Inversión con IVA (COP)</span>
+              <input class="edit-field" id="e-inversion" type="number" />
+            </div>
+            <div class="e-group">
+              <span class="e-lbl">Leads esperados</span>
+              <input class="edit-field" id="e-leads" type="number" />
+            </div>
+            <div class="e-group">
+              <span class="e-lbl">Impacto / Asistentes</span>
+              <input class="edit-field" id="e-impacto" />
+            </div>
+          </div>
+        </div>
+
+        <div class="m-sec">
+          <div class="m-lbl" style="color:var(--eb-purple)">📸 Fotos del evento</div>
+          <div class="upload-zone" onclick="document.getElementById('e-imgs-input').click()" style="padding:16px;margin-bottom:10px">
+            <div style="font-size:22px;margin-bottom:4px">📸</div>
+            <div style="font-size:13px;font-weight:700;color:var(--eb-purple)">+ Agregar fotos</div>
+            <div style="font-size:11px;color:var(--muted);font-weight:600">JPG, PNG</div>
+          </div>
+          <input type="file" id="e-imgs-input" multiple accept="image/*" style="display:none" onchange="handleEditImgs(event)" />
+          <div id="e-imgs-grid" class="res-grid"></div>
+        </div>
+
+        <div class="m-sec">
+          <div class="m-lbl" style="color:var(--eb-purple)">🔗 Menciones en medios y redes</div>
+          <div id="e-links-container"></div>
+          <button onclick="addEditLinkRow()" style="background:none;border:1.5px dashed var(--border);color:var(--eb-purple);padding:7px 16px;border-radius:8px;font-size:12.5px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;margin-top:4px;transition:all .15s">+ Agregar link</button>
+        </div>
+
+        <div class="m-sec">
+          <div class="m-lbl" style="color:var(--eb-purple)">📁 Link de insumos / brief</div>
+          <input class="edit-field" id="e-brief-link" placeholder="https://sharepoint.com/... o drive.google.com/..." />
+        </div>
+
+      </div><!-- /edit mode -->
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL día ── -->
+<div class="modal-overlay" id="mo-day" onclick="cmdDay(event)">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-hdr">
+      <div>
+        <div class="day-modal-date" id="day-modal-date"></div>
+        <div class="day-modal-sub" id="day-modal-sub"></div>
+      </div>
+      <button class="m-close" onclick="document.getElementById('mo-day').classList.remove('open')">✕</button>
+    </div>
+    <div class="day-modal-content">
+      <div class="day-ev-list" id="day-ev-list"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════
+   DATA — 10 eventos reales de enerBit
+═══════════════════════════════════════ */
+const typeColor = {
+  "Stand":"#5f458f","Experiencia de marca":"#ff7426","Asistentes":"#2eb86e",
+  "Patrocinadores":"#0ea5b5","Rueda de negocios":"#e040a0"
+};
+const statusCls  = {"Comprado":"s-comp","Comprado ":"s-comp","Negociando":"s-neg","No participamos":"s-no","Ejecutado":"s-eje"};
+const statusLbl  = {"Comprado":"✅ Comprado","Comprado ":"✅ Comprado","Negociando":"🟡 Negociando","No participamos":"⏭ No participamos","Ejecutado":"🔵 Ejecutado"};
+// Festivos colombianos 2026 (Ley Emiliani incluida)
+const FESTIVOS_2026 = {
+  '1-1':   'Año Nuevo',
+  '1-12':  'Reyes Magos',
+  '3-23':  'San José',
+  '4-2':   'Jueves Santo',
+  '4-3':   'Viernes Santo',
+  '5-1':   'Día del Trabajo',
+  '5-18':  'Ascensión del Señor',
+  '6-8':   'Corpus Christi',
+  '6-15':  'Sagrado Corazón',
+  '6-29':  'San Pedro y San Pablo',
+  '7-20':  'Independencia',
+  '8-7':   'Batalla de Boyacá',
+  '8-17':  'Asunción de la Virgen',
+  '10-12': 'Día de la Raza',
+  '11-2':  'Todos los Santos',
+  '11-16': 'Independencia de Cartagena',
+  '12-8':  'Inmaculada Concepción',
+  '12-25': 'Navidad'
+};
+// key format: 'month(1-based)-day'
+function isFestivo(y, m, d) {
+  if(y !== 2026) return null;
+  return FESTIVOS_2026[(m+1)+'-'+d] || null;
+}
+
+const MONTHS_ES  = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+const DAYS_ES    = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"];
+
+// fechas como rangos [year, monthIndex(0-based), startDay, endDay]
+const DATA = [
+  {id:1,nombre:"Agroindustrial — ANDI",tipo:"Rueda de negocios",estado:"No participamos",buyer:"Empresas",sector:"Agroindustrial",
+   fechaStr:"11 y 12",mes:"Febrero",ciudad:"Medellín",objetivo:"Networking",
+   dates:{y:2026,m:1,s:11,e:12},
+   descripcion:"Rueda de negocios del sector agroindustrial organizada por ANDI. enerBit evaluó la participación pero decidió no asistir este año.",
+   perfil:"Empresas del sector agroindustrial, proveedores y compradores.",
+   conceptos:null,inversion:null,leads:null,contacto:null,comentario:null},
+
+  {id:2,nombre:"Congreso de Capital Privado y Emprendedor",tipo:"Asistentes",estado:"Comprado",buyer:"Inversión",sector:"Inversionistas",
+   fechaStr:"10 y 11",mes:"Marzo",ciudad:"Bogotá",objetivo:"Networking",
+   dates:{y:2026,m:2,s:10,e:11},
+   descripcion:"Congreso que reúne a los principales actores del ecosistema de capital privado, emprendimiento y venture capital de la región. Oportunidad para visibilizar enerBit ante tomadores de decisión del mundo inversor.",
+   perfil:"Inversionistas, fondos de capital de riesgo, emprendedores de alto impacto y representantes de ecosistemas de startups.",
+   conceptos:"Entrada para Gabo — asistencia como representante de enerBit para networking estratégico con potenciales inversionistas y socios.",
+   inversion:3808000,leads:null,contacto:null,comentario:null},
+
+  {id:3,nombre:"Asamblea Regional Camacol Valle",tipo:"Experiencia de marca",estado:"Comprado",buyer:"Constructores",sector:"Constructores",
+   fechaStr:"20",mes:"Marzo",ciudad:"Cali",objetivo:"Posicionamiento y atracción",
+   dates:{y:2026,m:2,s:20,e:20},
+   descripcion:"Las asambleas regionales de Camacol son espacios estratégicos donde el gremio constructor se reúne para alinear visión, revisar coyuntura del sector, compartir cifras, tendencias, retos regulatorios y tomar decisiones que impactan el desarrollo inmobiliario de cada región.",
+   perfil:"Gerentes de constructoras, promotores, desarrolladores, proveedores clave y líderes gremiales.",
+   conceptos:"Mesa de café y aromática con 200 galletas.\n— Tótem táctil interactivo.\n— Backing impreso en lona 2,40m × 2m.\n— Logo en escenografía digital principal.\n— Mesa con tres sillas.",
+   inversion:4760000,leads:null,contacto:null,comentario:null},
+
+  {id:4,nombre:"Starco 2026",tipo:"Patrocinadores",estado:"Comprado",buyer:"Inversión",sector:"Inversionistas",
+   fechaStr:"16 y 17",mes:"Abril",ciudad:"Medellín",objetivo:"Networking",
+   dates:{y:2026,m:3,s:16,e:17},
+   descripcion:"El evento y primera subasta en vivo de startups más importante de Latinoamérica. Conecta emprendimientos innovadores con inversionistas y corporativos.",
+   perfil:"Startups, fondos de capital de riesgo (VC), hackers de crecimiento y empresas buscando innovación abierta.",
+   conceptos:"Sponsorship — ver brief en SharePoint. Paquete incluye visibilidad en escenario principal y networking VIP.",
+   inversion:47600000,leads:null,contacto:"Juan Gabriel Arboleda, CEO\njgabriel@starter.com.co",comentario:null},
+
+  {id:5,nombre:"Camacol Verde",tipo:"Experiencia de marca",estado:"Comprado",buyer:"Constructores",sector:"Constructores",
+   fechaStr:"14 y 15",mes:"Mayo",ciudad:"Medellín",objetivo:"Posicionamiento y atracción",
+   dates:{y:2026,m:4,s:14,e:15},
+   descripcion:"Evento de Camacol enfocado en construcción sostenible, eficiencia energética y tendencias verdes del sector constructor.",
+   perfil:"Constructores y desarrolladores con interés en soluciones de sostenibilidad y eficiencia energética.",
+   conceptos:"Activación de experiencia de marca enerBit con énfasis en medición inteligente y ahorro de energía.",
+   inversion:null,leads:null,contacto:null,comentario:null},
+
+  {id:6,nombre:"Cumbre IA Sector Constructor — Camacol Nal.",tipo:"Stand",estado:"Comprado",buyer:"Constructores",sector:"Constructores",
+   fechaStr:"23 y 24",mes:"Julio",ciudad:"Cartagena",objetivo:"Posicionamiento y atracción",
+   dates:{y:2026,m:6,s:23,e:24},
+   descripcion:"Segunda Cumbre de Inteligencia Artificial del Sector Constructor organizada por Camacol Nacional. Espacio de vanguardia tecnológica donde enerBit se posiciona como referente de digitalización energética.",
+   perfil:"CIOs, CTOs y líderes de transformación digital en empresas constructoras.",
+   conceptos:"Stand enerBit con demo de la app y medidor inteligente. Enfocado en cómo la IA mejora la gestión de consumo energético en proyectos constructivos.",
+   inversion:null,leads:null,contacto:null,comentario:null},
+
+  {id:7,nombre:"Expocamacol",tipo:"Stand",estado:"Comprado",buyer:"Constructores",sector:"Constructores",
+   fechaStr:"26 al 29",mes:"Agosto",ciudad:"Medellín",objetivo:"Posicionamiento y atracción",
+   dates:{y:2026,m:7,s:26,e:29},
+   descripcion:"La feria internacional de construcción, arquitectura y diseño más importante de Latinoamérica. Espacio para exhibir productos, generar negocios y actualización en tendencias del sector.",
+   perfil:"Constructores, industriales, arquitectos, comercializadores y distribuidores de materiales de construcción.",
+   conceptos:"Stand enerBit completo: demo medidor inteligente, app en vivo, casos de éxito y generación de leads.",
+   inversion:null,leads:null,contacto:null,comentario:"Se compró en 2025 — presupuesto ya ejecutado."},
+
+  {id:8,nombre:"Conexión 2026",tipo:null,estado:"Negociando",buyer:"Inversión",sector:"Inversionistas",
+   fechaStr:"18 y 19",mes:"Agosto",ciudad:"Medellín",objetivo:"Networking",
+   dates:{y:2026,m:7,s:18,e:19},
+   descripcion:"Evento de networking para el ecosistema inversor y emprendedor. enerBit evalúa participación como patrocinador o expositor.",
+   perfil:"Inversionistas ángel, fondos de inversión, emprendedores y representantes del ecosistema de startups.",
+   conceptos:"Por definir — pendiente cierre de negociación.",
+   inversion:40460000,leads:null,contacto:null,comentario:null},
+
+  {id:9,nombre:"Congreso Colombiano de la Construcción",tipo:"Stand",estado:"Comprado",buyer:"Constructores",sector:"Constructores",
+   fechaStr:"21 al 23",mes:"Octubre",ciudad:"Cartagena",objetivo:"Posicionamiento y atracción",
+   dates:{y:2026,m:9,s:21,e:23},
+   descripcion:"El congreso más importante del sector constructor en Colombia, organizado por Camacol Nacional. Punto de encuentro de todos los actores del ecosistema constructor.",
+   perfil:"Constructores, promotores, arquitectos, diseñadores y tomadores de decisión del sector inmobiliario.",
+   conceptos:"Stand enerBit — posicionamiento como solución de energía inteligente, generación de leads y cierre de alianzas.",
+   inversion:null,leads:null,contacto:null,comentario:null},
+
+  {id:10,nombre:"Cata de Ron — Clientes B2B Martha",tipo:"Experiencia de marca",estado:"Comprado",buyer:"B2B",sector:"Comerciantes",
+   fechaStr:"28",mes:"Febrero",ciudad:"Medellín",objetivo:"Atracción",
+   dates:{y:2026,m:1,s:28,e:28},
+   descripcion:"La Cata de Ron es una experiencia exclusiva para empresarios bajo la estrategia Amiguix. En un ambiente íntimo, compartimos una cata guiada de Ron Viejo de Caldas y presentamos cómo la medición inteligente puede ser una ventaja competitiva para sus empresas.",
+   perfil:"Clientes de altos consumos B2B — sector aires acondicionados.",
+   conceptos:"Cata de ron en restaurante Brutal, pendón y pantalla para proyectar presentación de enerBit.",
+   inversion:0,leads:4,contacto:null,comentario:"No tuvo costo — saldo pendiente por ejecutar del año pasado."}
+];
+
+const fmt = v => v === 0 ? '$0' : v ? '$'+(v/1000000).toFixed(1).replace('.0','')+'M' : '—';
+
+/* ═══════════════ NAVIGATION ═══════════════ */
+function showView(id, el, ev) {
+  if(ev) ev.preventDefault();
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  document.getElementById('view-'+id).classList.add('active');
+  if(el) el.classList.add('active');
+  if(id==='calendar') renderCalendar();
+  if(id==='dashboard') renderTimeline();
+  if(id==='actividades') renderActCards();
+  if(id==='home') renderHomeCards();
+  if(id==='nueva'){ setTimeout(()=>resetForm(), 10); }
+}
+
+/* ════ RESOURCES PER ACTIVITY ════ */
+// resources[activityId] = { imgs: [{name, dataUrl}], links: [{url, type}] }
+const resources = {};
+
+function getResources(id){
+  if(!resources[id]) resources[id]={imgs:[],links:[]};
+  return resources[id];
+}
+
+/* ════ FORM LOGIC ════ */
+let currentStep = 1;
+const TOTAL_STEPS = 4;
+let formImgs = []; // [{name, dataUrl}]
+let linkRowCount = 1;
+
+function goStep(n){
+  // Validate step 1 required fields
+
+  currentStep = n;
+  document.querySelectorAll('.form-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('fsec-'+n).classList.add('active');
+  document.querySelectorAll('.form-step-btn').forEach((b,i)=>{
+    b.classList.remove('active','done');
+    if(i+1 === n) b.classList.add('active');
+    if(i+1 < n)   b.classList.add('done');
+  });
+  document.getElementById('form-step-label').textContent = 'Paso '+n+' de '+TOTAL_STEPS;
+}
+
+function handleImgs(evt){
+  const files = Array.from(evt.target.files);
+  files.forEach(file=>{
+    const reader = new FileReader();
+    reader.onload = e => {
+      formImgs.push({name:file.name, dataUrl:e.target.result});
+      renderImgsPreview();
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderImgsPreview(){
+  const grid = document.getElementById('imgs-preview');
+  if(!formImgs.length){grid.innerHTML='';return;}
+  grid.innerHTML = formImgs.map((img,i)=>`
+    <div class="res-img-card">
+      <img src="${img.dataUrl}" alt="${img.name}" />
+      <div class="res-img-overlay" onclick="formImgs.splice(${i},1);renderImgsPreview()">🗑️</div>
+    </div>`).join('');
+}
+
+function addLinkRow(){
+  const c = document.getElementById('links-container');
+  const row = document.createElement('div');
+  row.className = 'link-input-row';
+  row.id = 'link-row-'+linkRowCount;
+  row.innerHTML = `
+    <input class="form-input" placeholder="Ej: https://instagram.com/p/..." id="link-input-${linkRowCount}" />
+    <select class="form-select" id="link-type-${linkRowCount}" style="width:140px;flex-shrink:0">
+      <option>Instagram</option><option>LinkedIn</option><option>Twitter / X</option>
+      <option>Facebook</option><option>Prensa / Blog</option><option>YouTube</option>
+      <option>TikTok</option><option>Otro</option>
+    </select>
+    <button onclick="document.getElementById('link-row-${linkRowCount}').remove()" style="background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;padding:0 4px;flex-shrink:0">✕</button>`;
+  c.appendChild(row);
+  linkRowCount++;
+}
+
+function collectLinks(){
+  const links=[];
+  document.querySelectorAll('[id^="link-input-"]').forEach((inp,i)=>{
+    const url=inp.value.trim();
+    const typeEl=document.getElementById('link-type-'+inp.id.replace('link-input-',''));
+    if(url) links.push({url, type:typeEl?typeEl.value:'Otro'});
+  });
+  return links;
+}
+
+function linkIcon(type){
+  const icons={
+    'Instagram':'📷','LinkedIn':'💼','Twitter / X':'🐦','Facebook':'👥',
+    'Prensa / Blog':'📰','YouTube':'▶️','TikTok':'🎵','Otro':'🔗'
+  };
+  return icons[type]||'🔗';
+}
+
+function saveActivity(){
+  // Parse dates
+  const fechaS = document.getElementById('f-fecha-s').value; // yyyy-mm-dd
+  const fechaE = document.getElementById('f-fecha-e').value || fechaS;
+  const [sy,sm,sd] = fechaS.split('-').map(Number);
+  const [ey,em,ed] = fechaE.split('-').map(Number);
+
+  const MONTHS_NAMES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+  const newId = DATA.length > 0 ? Math.max(...DATA.map(d=>d.id)) + 1 : 1;
+  const inv = document.getElementById('f-inversion').value;
+  const leads = document.getElementById('f-leads').value;
+  const linea = document.getElementById('f-linea').value;
+
+  const newActivity = {
+    id: newId,
+    nombre: document.getElementById('f-nombre').value.trim(),
+    tipo:   document.getElementById('f-tipo').value || null,
+    estado: document.getElementById('f-estado').value,
+    buyer:  document.getElementById('f-buyer').value.trim() || document.getElementById('f-sector').value,
+    sector: document.getElementById('f-sector').value,
+    fechaStr: sd === ed ? String(sd) : sd+' al '+ed,
+    mes: MONTHS_NAMES[sm-1],
+    ciudad: document.getElementById('f-ciudad').value.trim(),
+    objetivo: linea || document.getElementById('f-objetivo').value.trim().slice(0,40),
+    dates: { y:sy, m:sm-1, s:sd, e:ed },
+    descripcion: document.getElementById('f-descripcion').value.trim() || null,
+    perfil: document.getElementById('f-perfil').value.trim() || null,
+    conceptos: document.getElementById('f-conceptos').value.trim() || null,
+    inversion: inv ? Number(inv) : null,
+    leads: leads ? Number(leads) : null,
+    impacto: document.getElementById('f-impacto').value.trim() || null,
+    contacto: document.getElementById('f-contacto').value.trim() || null,
+    comentario: document.getElementById('f-comentario').value.trim() || null,
+    responsable: document.getElementById('f-responsable').value.trim(),
+  };
+
+  DATA.push(newActivity);
+
+  // Save resources
+  const imgs  = formImgs.slice();
+  const links = collectLinks();
+  const briefLink = document.getElementById('f-brief-link').value.trim();
+  if(briefLink) links.push({url:briefLink, type:'Brief/Insumos'});
+  resources[newId] = {imgs, links};
+
+  // Show success
+  document.querySelectorAll('.form-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('form-success').style.display='';
+
+  // Re-render all views so new activity appears
+  renderHomeCards();
+  renderActCards();
+  renderCalendar();
+}
+
+function resetForm(){
+  currentStep=1; formImgs=[]; linkRowCount=1;
+  document.getElementById('form-success').style.display='none';
+  ['f-nombre','f-tipo','f-estado','f-ciudad','f-fecha-s','f-fecha-e','f-venue',
+   'f-sector','f-buyer','f-comentario','f-objetivo','f-linea','f-descripcion',
+   'f-perfil','f-conceptos','f-responsable','f-contacto','f-equipo',
+   'f-inversion','f-leads','f-impacto','f-brief-link'
+  ].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.value='';
+  });
+  document.getElementById('imgs-preview').innerHTML='';
+  document.getElementById('links-container').innerHTML=`
+    <div class="link-input-row">
+      <input class="form-input" placeholder="Ej: https://instagram.com/p/..." id="link-input-0" />
+      <select class="form-select" id="link-type-0" style="width:140px;flex-shrink:0">
+        <option>Instagram</option><option>LinkedIn</option><option>Twitter / X</option>
+        <option>Facebook</option><option>Prensa / Blog</option><option>YouTube</option>
+        <option>TikTok</option><option>Otro</option>
+      </select>
+    </div>`;
+  goStep(1);
+}
+
+/* ═══════════════ CARDS ═══════════════ */
+function cardHTML(a) {
+  const col = typeColor[a.tipo] || '#8b7ab8';
+  const tipo = a.tipo || 'Por definir';
+  const inv  = a.inversion === 0 ? '$0 (saldo ant.)' : a.inversion ? fmt(a.inversion) : 'Por definir';
+  return `<div class="card" style="--ca:${col}" onclick="openModal(${a.id})">
+    ${a.comentario?`<div class="comment-banner">💬 ${a.comentario}</div>`:''}
+    <div class="card-top">
+      <div class="type-badge" style="background:${col}16;color:${col}"><div class="bdot" style="background:${col}"></div>${tipo}</div>
+      <div class="sbadge ${statusCls[a.estado]||'s-no'}">${statusLbl[a.estado]||a.estado}</div>
+    </div>
+    <div class="strat-tag">↗ ${a.objetivo}</div>
+    <div class="card-name">${a.nombre}</div>
+    <div class="card-desc">${a.descripcion||'Descripción pendiente.'}</div>
+    <div class="card-meta">
+      <div class="mi">📅 ${a.fechaStr} ${a.mes}</div>
+      <div class="mi">📍 ${a.ciudad}</div>
+      <div class="mi">🏷️ ${a.sector}</div>
+      ${a.leads?`<div class="mi">🎯 ${a.leads} leads</div>`:''}
+    </div>
+    <div class="card-foot">
+      <div class="buyer-tag"><div class="av">${a.buyer[0]}</div>${a.buyer}</div>
+      <div style="text-align:right"><div class="inv-chip">${inv}</div><div class="inv-sub">inversión</div></div>
+    </div>
+  </div>`;
+}
+function renderHomeCards(){
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const limit = new Date(today);
+  limit.setDate(limit.getDate() + 30);
+
+  // Filter events whose END date >= today AND START date <= today+30
+  const upcoming = DATA.filter(a => {
+    const start = new Date(a.dates.y, a.dates.m, a.dates.s);
+    const end   = new Date(a.dates.y, a.dates.m, a.dates.e);
+    return end >= today && start <= limit;
+  });
+
+  // Sort by start date ascending
+  upcoming.sort((a,b) => {
+    const da = new Date(a.dates.y, a.dates.m, a.dates.s);
+    const db = new Date(b.dates.y, b.dates.m, b.dates.s);
+    return da - db;
+  });
+
+  const countEl   = document.getElementById('home-count');
+  const windowEl  = document.getElementById('home-window');
+  const emptyEl   = document.getElementById('home-empty');
+  const gridEl    = document.getElementById('home-cards');
+
+  if(upcoming.length === 0){
+    countEl.textContent  = '0 actividades';
+    windowEl.textContent = '· próximos 30 días';
+    emptyEl.style.display = '';
+    gridEl.innerHTML = '';
+  } else {
+    const todayStr = today.toLocaleDateString('es-CO', {day:'numeric', month:'long'});
+    const limitStr = limit.toLocaleDateString('es-CO', {day:'numeric', month:'long'});
+    countEl.textContent  = upcoming.length + ' actividad' + (upcoming.length !== 1 ? 'es' : '');
+    windowEl.textContent = '· ' + todayStr + ' → ' + limitStr;
+    emptyEl.style.display = 'none';
+    gridEl.innerHTML = upcoming.map(cardHTML).join('');
+  }
+}
+
+let actFilter='all';
+function renderActCards(){
+  const filtered=actFilter==='all'?DATA:DATA.filter(a=>
+    a.tipo===actFilter||a.sector===actFilter||a.buyer===actFilter||
+    a.ciudad===actFilter||(a.estado&&a.estado.trim())===actFilter
+  );
+  document.getElementById('act-count').textContent=filtered.length+' actividad'+(filtered.length!==1?'es':'');
+  document.getElementById('act-cards').innerHTML=filtered.length
+    ?filtered.map(cardHTML).join('')
+    :`<div style="grid-column:1/-1;text-align:center;padding:48px;color:var(--muted);font-size:15px;font-weight:700">⚡ Sin actividades con ese filtro</div>`;
+}
+function fAct(btn,val){
+  actFilter=val;
+  document.querySelectorAll('#act-filters-bar .fb').forEach(b=>b.classList.remove('active','or'));
+  btn.classList.add('active');
+  const orangeFilters=['Constructores','Inversionistas','B2B','Medellín','Bogota','Cali','Cartagena','Comprado','Negociando','No participamos'];
+  if(orangeFilters.includes(val))btn.classList.add('or');
+  renderActCards();
+}
+
+/* ═══════════════ MODAL evento ═══════════════ */
+function openModal(id){
+  editingId = id; discardEdit();
+  const a=DATA.find(x=>x.id===id);
+  const col=typeColor[a.tipo]||'#8b7ab8';
+  const tipo=a.tipo||'Por definir';
+  document.getElementById('mn').textContent=a.nombre;
+  const tb=document.getElementById('mt');
+  tb.style.background=col+'16';tb.style.color=col;
+  tb.innerHTML=`<div class="bdot" style="background:${col}"></div>${tipo}`;
+  const sb=document.getElementById('ms');
+  sb.className=`sbadge ${statusCls[a.estado]||'s-no'}`;sb.textContent=statusLbl[a.estado]||a.estado;
+  document.getElementById('msec').textContent=a.sector;
+  document.getElementById('mobj').textContent='↗ '+a.objetivo;
+  document.getElementById('mf').textContent=a.fechaStr+' de '+a.mes;
+  document.getElementById('mci').textContent=a.ciudad;
+  document.getElementById('mbu').textContent=a.buyer+' · '+a.sector;
+  document.getElementById('minv').textContent=a.inversion===0?'$0 COP (saldo año anterior)':a.inversion?fmt(a.inversion)+' COP':'Por definir';
+  document.getElementById('mcom').innerHTML=a.comentario?`<div class="comment-banner" style="margin-bottom:16px">💬 <strong>Nota:</strong> ${a.comentario}</div>`:'';
+  const ds=document.getElementById('mdesc-sec');document.getElementById('mdesc').textContent=a.descripcion||'';ds.style.display=a.descripcion?'':'none';
+  const ps=document.getElementById('mperf-sec');document.getElementById('mperf').textContent=a.perfil||'';ps.style.display=a.perfil?'':'none';
+  const cs=document.getElementById('mconc-sec');document.getElementById('mconc').innerHTML=a.conceptos?a.conceptos.replace(/\n/g,'<br>'):'';cs.style.display=a.conceptos?'':'none';
+  const metrics=[];
+  if(a.inversion!==null)metrics.push({l:'Inversión',v:a.inversion===0?'$0':fmt(a.inversion)});
+  if(a.leads)metrics.push({l:'Leads objetivo',v:a.leads});
+  metrics.push({l:'Mes',v:a.mes});metrics.push({l:'Ciudad',v:a.ciudad});
+  document.getElementById('mmet').innerHTML=metrics.map(m=>`<div class="mbox"><label>${m.l}</label><div class="mv">${m.v}</div></div>`).join('');
+  const ct=document.getElementById('mcont-sec');
+  if(a.contacto){document.getElementById('mcont').innerHTML=a.contacto.replace(/\n/g,'<br>');ct.style.display='';}else{ct.style.display='none';}
+
+  // Populate resources
+  const res = getResources(a.id);
+  const imgsGrid = document.getElementById('m-imgs-grid');
+  const imgsEmpty = document.getElementById('m-imgs-empty');
+  if(res.imgs.length){
+    imgsEmpty.style.display='none';
+    imgsGrid.innerHTML = res.imgs.map(img=>`
+      <div class="res-img-card" onclick="window.open('${img.dataUrl}','_blank')">
+        <img src="${img.dataUrl}" alt="${img.name}" />
+        <div class="res-img-overlay">🔍</div>
+      </div>`).join('');
+  } else {
+    imgsGrid.innerHTML=''; imgsEmpty.style.display='';
+  }
+
+  const linksList = document.getElementById('m-links-list');
+  const linksEmpty = document.getElementById('m-links-empty');
+  if(res.links.length){
+    linksEmpty.style.display='none';
+    linksList.innerHTML = res.links.map(lk=>`
+      <a href="${lk.url}" target="_blank" class="res-link-item" rel="noopener">
+        <div class="res-link-icon">${linkIcon(lk.type)}</div>
+        <div class="res-link-text">
+          <span class="res-link-label">${lk.type}</span>
+          <span class="res-link-url">${lk.url}</span>
+        </div>
+        <span style="color:var(--eb-orange);font-size:16px">↗</span>
+      </a>`).join('');
+  } else {
+    linksList.innerHTML=''; linksEmpty.style.display='';
+  }
+
+  document.getElementById('mo').classList.add('open');
+}
+function cm(e){if(e.target===document.getElementById('mo'))cmd();}
+function cmd(){document.getElementById('mo').classList.remove('open');}
+
+/* ═══════════════ CALENDAR ENGINE ═══════════════ */
+let calMonth = 0; // 0=January
+let calYear  = 2026;
+let calViewMode = 'month';
+
+function setCalView(mode, btn) {
+  calViewMode = mode;
+  document.querySelectorAll('.cvt-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('cal-month-view').style.display = mode==='month' ? '' : 'none';
+  const yv = document.getElementById('cal-year-view');
+  if(mode==='year'){yv.classList.add('active');renderYearView();}
+  else{yv.classList.remove('active');}
+  document.getElementById('cal-month-label').parentElement.parentElement.style.opacity = mode==='year'?'0.4':'1';
+}
+
+function changeMonth(dir) {
+  calMonth += dir;
+  if(calMonth < 0){calMonth=11;calYear--;}
+  if(calMonth > 11){calMonth=0;calYear++;}
+  renderCalendar();
+}
+
+// get events that overlap a given day
+function eventsOnDay(y, m, d) {
+  return DATA.filter(a => {
+    if(a.dates.y !== y || a.dates.m !== m) return false;
+    return d >= a.dates.s && d <= a.dates.e;
+  });
+}
+
+function renderCalendar() {
+  document.getElementById('cal-month-label').textContent = MONTHS_ES[calMonth] + ' ' + calYear;
+  const grid = document.getElementById('cal-days-grid');
+  const firstDay = new Date(calYear, calMonth, 1).getDay(); // 0=Sun
+  const daysInMonth = new Date(calYear, calMonth+1, 0).getDate();
+  const daysInPrev  = new Date(calYear, calMonth, 0).getDate();
+  const today = new Date();
+
+  let html = '';
+  const totalCells = Math.ceil((firstDay + daysInMonth) / 7) * 7;
+
+  for(let i = 0; i < totalCells; i++) {
+    let day, month, year, isOther = false;
+    if(i < firstDay) {
+      day = daysInPrev - firstDay + i + 1;
+      month = calMonth - 1; year = calYear;
+      if(month < 0){month=11;year=calYear-1;}
+      isOther = true;
+    } else if(i >= firstDay + daysInMonth) {
+      day = i - firstDay - daysInMonth + 1;
+      month = calMonth + 1; year = calYear;
+      if(month > 11){month=0;year=calYear+1;}
+      isOther = true;
+    } else {
+      day = i - firstDay + 1;
+      month = calMonth; year = calYear;
+    }
+
+    const isToday = !isOther && day===today.getDate() && calMonth===today.getMonth() && calYear===today.getFullYear();
+    const isWeekend = (i%7===0 || i%7===6);
+    const evs = isOther ? [] : eventsOnDay(year, month, day);
+    const hasEvs = evs.length > 0;
+    const festivoName = isOther ? null : isFestivo(year, month, day);
+    const isFest = !!festivoName;
+
+    let cls = 'cal-day';
+    if(isOther) cls += ' other-month';
+    if(isToday) cls += ' today';
+    if(isWeekend && !isOther) cls += ' weekend';
+    if(hasEvs) cls += ' has-events';
+    if(isFest) cls += ' festivo';
+
+    let evPills = '';
+    // Show festivo label first
+    if(isFest) {
+      evPills += `<div class="festivo-label">🇨🇴 ${festivoName}</div>`;
+    }
+    const maxShow = isFest ? 1 : 2;
+    evs.slice(0, maxShow).forEach(ev => {
+      const col = typeColor[ev.tipo] || '#8b7ab8';
+      evPills += `<div class="event-pill" style="background:${col}18;color:${col}" onclick="event.stopPropagation();openModal(${ev.id})" title="${ev.nombre}">
+        <div class="epill-dot" style="background:${col}"></div>
+        <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${ev.nombre}</span>
+      </div>`;
+    });
+    if(evs.length > maxShow) {
+      evPills += `<div class="more-events" onclick="event.stopPropagation();openDayModal(${year},${month},${day})">+${evs.length-maxShow} más</div>`;
+    }
+
+    // clicking a festivo day (with no event) opens a tooltip-like modal
+    const clickFn = hasEvs && evs.length === 1
+      ? `onclick="openModal(${evs[0].id})"`
+      : hasEvs ? `onclick="openDayModal(${year},${month},${day})"`
+      : isFest ? `onclick="openFestivoModal('${festivoName}',${day},${month},${year})"` : '';
+
+    html += `<div class="${cls}" ${clickFn}>
+      <div class="day-num">${day}</div>
+      ${evPills}
+    </div>`;
+  }
+  grid.innerHTML = html;
+}
+
+function openDayModal(y, m, d) {
+  const evs = eventsOnDay(y, m, d);
+  document.getElementById('day-modal-date').textContent = d + ' de ' + MONTHS_ES[m] + ' ' + y;
+  document.getElementById('day-modal-sub').textContent = evs.length + ' actividad' + (evs.length>1?'es':'') + ' este día';
+  document.getElementById('day-ev-list').innerHTML = evs.map(ev => {
+    const col = typeColor[ev.tipo] || '#8b7ab8';
+    return `<div class="day-ev-card" style="--col:${col}" onclick="document.getElementById('mo-day').classList.remove('open');openModal(${ev.id})">
+      <div class="day-ev-name">${ev.nombre}</div>
+      <div class="day-ev-meta">
+        <span>📍 ${ev.ciudad}</span>
+        <span>🏷️ ${ev.tipo||'Por definir'}</span>
+        <span>${statusLbl[ev.estado]||ev.estado}</span>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('mo-day').classList.add('open');
+}
+function cmdDay(e){if(e.target===document.getElementById('mo-day'))document.getElementById('mo-day').classList.remove('open');}
+
+function openFestivoModal(name, d, m, y) {
+  document.getElementById('day-modal-date').textContent = d + ' de ' + MONTHS_ES[m] + ' ' + y;
+  document.getElementById('day-modal-sub').textContent = '🇨🇴 Festivo colombiano';
+  document.getElementById('day-ev-list').innerHTML = `
+    <div style="text-align:center;padding:20px 16px">
+      <div style="font-size:36px;margin-bottom:10px">🇨🇴</div>
+      <div style="font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;color:var(--eb-orange);margin-bottom:6px">${name}</div>
+      <div style="font-size:13px;color:var(--muted);font-weight:600">Festivo nacional en Colombia</div>
+    </div>`;
+  document.getElementById('mo-day').classList.add('open');
+}
+
+/* ═══════════════ YEAR VIEW ═══════════════ */
+function renderYearView() {
+  const container = document.getElementById('cal-year-view');
+  let html = '';
+  for(let m = 0; m < 12; m++) {
+    const evs = DATA.filter(a => a.dates.m === m && a.dates.y === 2026);
+    const daysInMonth = new Date(2026, m+1, 0).getDate();
+    const firstDay = new Date(2026, m, 1).getDay();
+
+    // mini calendar
+    let miniDays = '';
+    const totalCells = Math.ceil((firstDay + daysInMonth)/7)*7;
+    for(let i=0;i<totalCells;i++){
+      let day, isOther=false;
+      if(i<firstDay){day=new Date(2026,m,0).getDate()-firstDay+i+1;isOther=true;}
+      else if(i>=firstDay+daysInMonth){day=i-firstDay-daysInMonth+1;isOther=true;}
+      else{day=i-firstDay+1;}
+      const isWe=(i%7===0||i%7===6);
+      const dayEvs=isOther?[]:evs.filter(a=>day>=a.dates.s&&day<=a.dates.e);
+      const hasEv=dayEvs.length>0;
+      const festMini=isOther?null:isFestivo(2026,m,day);
+      let cls='mini-day';
+      if(isOther)cls+=' other';else if(isWe)cls+=' weekend';
+      if(hasEv)cls+=' has-ev';
+      if(festMini&&!isOther)cls+=' festivo-mini';
+      miniDays+=`<div class="${cls}" ${(hasEv||festMini)&&!isOther?`onclick="goToDay(${m},${day})" style="cursor:pointer"`:''}>
+        ${day}
+        ${hasEv&&!isOther?`<div class="ev-dot" style="background:${typeColor[dayEvs[0].tipo]||'#ff7426'}"></div>`:''}
+        ${festMini&&!hasEv&&!isOther?`<div class="ev-dot" style="background:var(--eb-orange)"></div>`:''}
+      </div>`;
+    }
+
+    const evItems = evs.map(ev=>`<div class="mini-ev-item">
+      <div class="mini-ev-dot" style="background:${typeColor[ev.tipo]||'#8b7ab8'}"></div>
+      <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1">${ev.nombre}</span>
+    </div>`).join('');
+
+    html+=`<div class="mini-month" onclick="goToMonth(${m})">
+      <div class="mini-month-header">
+        <div class="mini-month-name">${MONTHS_ES[m]}</div>
+        <div class="mini-month-count">${evs.length} evento${evs.length!==1?'s':''}</div>
+      </div>
+      <div class="mini-grid">
+        <div class="mini-wdays">${DAYS_ES.map(d=>`<div class="mini-wd">${d[0]}</div>`).join('')}</div>
+        <div class="mini-days">${miniDays}</div>
+      </div>
+      ${evs.length>0?`<div class="mini-month-events">${evItems}</div>`:''}
+    </div>`;
+  }
+  container.innerHTML = html;
+}
+
+function goToMonth(m) {
+  calMonth = m;
+  setCalView('month', document.getElementById('btn-month'));
+  renderCalendar();
+}
+function goToDay(m, d) {
+  goToMonth(m);
+  // small delay so calendar renders first
+  setTimeout(()=>openDayModal(2026,m,d),100);
+}
+
+/* ═══════════════ TIMELINE ═══════════════ */
+function renderTimeline() {
+  const strip = document.getElementById('timeline-strip');
+  const months = MONTHS_ES.map((name,i)=>{
+    const evs = DATA.filter(a=>a.dates.m===i&&a.dates.y===2026);
+    const w = Math.max(80, evs.length*90+60);
+    const bars = evs.map(ev=>{
+      const col=typeColor[ev.tipo]||'#8b7ab8';
+      const days=new Date(2026,i+1,0).getDate();
+      const pct=((ev.dates.e-ev.dates.s+1)/days*100).toFixed(1);
+      const left=((ev.dates.s-1)/days*100).toFixed(1);
+      return `<div title="${ev.nombre}" onclick="openModal(${ev.id})" style="position:absolute;left:${left}%;width:${pct}%;height:14px;background:${col};border-radius:4px;cursor:pointer;top:${evs.indexOf(ev)*18}px;opacity:.85;transition:opacity .15s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.85"></div>`;
+    }).join('');
+    const barH = Math.max(24, evs.length*18+4);
+    return `<div style="flex:1;min-width:${w}px;border-right:1px solid var(--border);padding:12px 10px 10px">
+      <div style="font-family:'Nunito',sans-serif;font-size:11px;font-weight:900;color:var(--eb-purple);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">${name.slice(0,3)}</div>
+      <div style="position:relative;height:${barH}px">${bars}</div>
+      ${evs.length?`<div style="margin-top:6px;font-size:10px;font-weight:700;color:var(--muted)">${evs.length} evento${evs.length>1?'s':''}</div>`:''}
+    </div>`;
+  });
+  strip.innerHTML = months.join('');
+}
+
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){
+    cmd();
+    document.getElementById('mo-day').classList.remove('open');
+  }
+});
+
+/* ════ EDIT MODE LOGIC ════ */
+let editingId = null;
+let editImgsBuffer = []; // new imgs added during this edit session
+let editLinkRowCount = 0;
+
+function toggleEditMode(){
+  const viewMode = document.getElementById('modal-view-mode');
+  const editMode = document.getElementById('modal-edit-mode');
+  const editBar  = document.getElementById('modal-edit-bar');
+  const btn      = document.getElementById('btn-edit-toggle');
+
+  if(editMode.style.display === 'none'){
+    // Switch TO edit mode
+    populateEditForm(editingId);
+    viewMode.style.display = 'none';
+    editMode.style.display = '';
+    editBar.style.display  = '';
+    btn.textContent = '👁 Ver detalle';
+    document.getElementById('modal-body-content').style.background = 'linear-gradient(180deg,rgba(255,116,38,.02) 0%,transparent 60px)';
+  } else {
+    // Switch BACK to view mode (without saving)
+    discardEdit();
+  }
+}
+
+function discardEdit(){
+  document.getElementById('modal-view-mode').style.display = '';
+  document.getElementById('modal-edit-mode').style.display = 'none';
+  document.getElementById('modal-edit-bar').style.display  = 'none';
+  document.getElementById('btn-edit-toggle').textContent   = '✏️ Editar';
+  document.getElementById('modal-body-content').style.background = '';
+  editImgsBuffer = [];
+}
+
+function populateEditForm(id){
+  const a = DATA.find(x => x.id === id);
+  if(!a) return;
+  const res = getResources(id);
+
+  // Identity fields
+  document.getElementById('e-nombre').value    = a.nombre || '';
+  setSelectVal('e-tipo',    a.tipo   || '');
+  setSelectVal('e-estado',  a.estado ? a.estado.trim() : 'Comprado');
+  document.getElementById('e-ciudad').value    = a.ciudad || '';
+  document.getElementById('e-venue').value     = a.venue  || '';
+  setSelectVal('e-sector',  a.sector || '');
+  document.getElementById('e-buyer').value     = a.buyer  || '';
+  document.getElementById('e-comentario').value= a.comentario || '';
+
+  // Dates: convert back from dates object
+  if(a.dates){
+    const pad = n => String(n).padStart(2,'0');
+    document.getElementById('e-fecha-s').value = `${a.dates.y}-${pad(a.dates.m+1)}-${pad(a.dates.s)}`;
+    document.getElementById('e-fecha-e').value = `${a.dates.y}-${pad(a.dates.m+1)}-${pad(a.dates.e)}`;
+  }
+
+  // Strategy
+  setSelectVal('e-objetivo',  a.objetivo || 'Networking');
+  document.getElementById('e-descripcion').value = a.descripcion || '';
+  document.getElementById('e-perfil').value      = a.perfil      || '';
+  document.getElementById('e-conceptos').value   = a.conceptos   || '';
+
+  // Team & metrics
+  document.getElementById('e-responsable').value = a.responsable || '';
+  document.getElementById('e-contacto').value    = a.contacto    || '';
+  document.getElementById('e-inversion').value   = a.inversion !== null && a.inversion !== undefined ? a.inversion : '';
+  document.getElementById('e-leads').value       = a.leads  || '';
+  document.getElementById('e-impacto').value     = a.impacto || '';
+
+  // Resources — imgs
+  editImgsBuffer = [];
+  renderEditImgs(id);
+
+  // Resources — links
+  editLinkRowCount = 0;
+  const lc = document.getElementById('e-links-container');
+  lc.innerHTML = '';
+  const allLinks = res.links || [];
+  // Separate brief from social links
+  const briefLink = allLinks.find(l => l.type === 'Brief/Insumos');
+  const socialLinks = allLinks.filter(l => l.type !== 'Brief/Insumos');
+  document.getElementById('e-brief-link').value = briefLink ? briefLink.url : '';
+  socialLinks.forEach(lk => addEditLinkRow(lk.url, lk.type));
+  if(!socialLinks.length) addEditLinkRow();
+}
+
+function setSelectVal(id, val){
+  const sel = document.getElementById(id);
+  if(!sel) return;
+  for(let i=0; i<sel.options.length; i++){
+    if(sel.options[i].value === val || sel.options[i].text === val){
+      sel.selectedIndex = i; return;
+    }
+  }
+  // If not found, set empty / first
+  sel.selectedIndex = 0;
+}
+
+function addEditLinkRow(url='', type='Instagram'){
+  const c = document.getElementById('e-links-container');
+  const rowId = 'el-row-'+editLinkRowCount;
+  const row = document.createElement('div');
+  row.className = 'edit-res-row';
+  row.id = rowId;
+  const LINK_TYPES = ['Instagram','LinkedIn','Twitter / X','Facebook','Prensa / Blog','YouTube','TikTok','Otro'];
+  row.innerHTML = `
+    <input class="edit-field" id="el-url-${editLinkRowCount}" value="${url}" placeholder="https://..." style="flex:1" />
+    <select class="edit-select" id="el-type-${editLinkRowCount}" style="width:130px;flex-shrink:0">
+      ${LINK_TYPES.map(t=>`<option${t===type?' selected':''}>${t}</option>`).join('')}
+    </select>
+    <button onclick="document.getElementById('${rowId}').remove()" style="background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;padding:0 4px;flex-shrink:0;line-height:1">✕</button>`;
+  c.appendChild(row);
+  editLinkRowCount++;
+}
+
+function handleEditImgs(evt){
+  Array.from(evt.target.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      editImgsBuffer.push({name: file.name, dataUrl: e.target.result});
+      renderEditImgs(editingId);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderEditImgs(id){
+  const res = getResources(id);
+  const allImgs = [...(res.imgs||[]), ...editImgsBuffer];
+  const grid = document.getElementById('e-imgs-grid');
+  grid.innerHTML = allImgs.map((img, i) => {
+    const isNew = i >= (res.imgs||[]).length;
+    return `<div class="res-img-card">
+      <img src="${img.dataUrl}" alt="${img.name}" />
+      <button class="res-img-del" onclick="removeEditImg(${id},${i})" title="Eliminar foto">✕</button>
+    </div>`;
+  }).join('');
+}
+
+function removeEditImg(id, idx){
+  const res = getResources(id);
+  const savedCount = (res.imgs||[]).length;
+  if(idx < savedCount){
+    res.imgs.splice(idx, 1);
+  } else {
+    editImgsBuffer.splice(idx - savedCount, 1);
+  }
+  renderEditImgs(id);
+}
+
+function collectEditLinks(){
+  const links = [];
+  document.querySelectorAll('[id^="el-url-"]').forEach(inp => {
+    const url = inp.value.trim();
+    const n = inp.id.replace('el-url-','');
+    const typeEl = document.getElementById('el-type-'+n);
+    if(url) links.push({url, type: typeEl ? typeEl.value : 'Otro'});
+  });
+  const briefUrl = document.getElementById('e-brief-link').value.trim();
+  if(briefUrl) links.push({url: briefUrl, type: 'Brief/Insumos'});
+  return links;
+}
+
+function saveEdit(){
+  const a = DATA.find(x => x.id === editingId);
+  if(!a) return;
+
+  const MONTHS_NAMES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+
+  // Parse dates
+  const fechaSRaw = document.getElementById('e-fecha-s').value;
+  const fechaERaw = document.getElementById('e-fecha-e').value || fechaSRaw;
+  const [sy,sm,sd] = fechaSRaw ? fechaSRaw.split('-').map(Number) : [a.dates.y, a.dates.m+1, a.dates.s];
+  const [ey,em,ed] = fechaERaw ? fechaERaw.split('-').map(Number) : [sy,sm,sd];
+
+  // Update activity in place
+  a.nombre     = document.getElementById('e-nombre').value.trim() || a.nombre;
+  a.tipo       = document.getElementById('e-tipo').value || null;
+  a.estado     = document.getElementById('e-estado').value;
+  a.ciudad     = document.getElementById('e-ciudad').value.trim() || a.ciudad;
+  a.venue      = document.getElementById('e-venue').value.trim();
+  a.sector     = document.getElementById('e-sector').value;
+  a.buyer      = document.getElementById('e-buyer').value.trim() || a.buyer;
+  a.comentario = document.getElementById('e-comentario').value.trim() || null;
+  a.objetivo   = document.getElementById('e-objetivo').value;
+  a.descripcion= document.getElementById('e-descripcion').value.trim() || null;
+  a.perfil     = document.getElementById('e-perfil').value.trim() || null;
+  a.conceptos  = document.getElementById('e-conceptos').value.trim() || null;
+  a.responsable= document.getElementById('e-responsable').value.trim() || a.responsable || '';
+  a.contacto   = document.getElementById('e-contacto').value.trim() || null;
+  const inv    = document.getElementById('e-inversion').value;
+  a.inversion  = inv !== '' ? Number(inv) : null;
+  const lds    = document.getElementById('e-leads').value;
+  a.leads      = lds !== '' ? Number(lds) : null;
+  a.impacto    = document.getElementById('e-impacto').value.trim() || null;
+
+  // Update dates
+  a.dates = {y:sy, m:sm-1, s:sd, e:ed};
+  a.fechaStr = sd===ed ? String(sd) : sd+' al '+ed;
+  a.mes = MONTHS_NAMES[sm-1];
+
+  // Merge new imgs into resources
+  const res = getResources(editingId);
+  res.imgs = [...(res.imgs||[]), ...editImgsBuffer];
+  res.links = collectEditLinks();
+  editImgsBuffer = [];
+
+  // Save to API
+  const editPayload = Object.assign({}, a, {
+    fecha_inicio: a.dates ? `${a.dates.y}-${String(a.dates.m+1).padStart(2,'0')}-${String(a.dates.s).padStart(2,'0')}` : '',
+    fecha_fin:    a.dates ? `${a.dates.y}-${String(a.dates.m+1).padStart(2,'0')}-${String(a.dates.e).padStart(2,'0')}` : '',
+  });
+  saveToAPI(editPayload);
+
+  // Show toast
+  showToast('⚡ Cambios guardados');
+
+  // Exit edit mode
+  discardEdit();
+
+  // Re-populate view mode with new data
+  openModal(editingId);
+
+  // Re-render views
+  renderHomeCards();
+  renderActCards();
+  renderCalendar();
+}
+
+function showToast(msg){
+  let t = document.getElementById('eb-toast');
+  if(!t){
+    t = document.createElement('div');
+    t.id='eb-toast';
+    t.style.cssText='position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--eb-purple);color:white;padding:12px 24px;border-radius:12px;font-family:Nunito,sans-serif;font-weight:800;font-size:14px;z-index:9999;opacity:0;transition:all .3s;box-shadow:0 4px 20px rgba(95,69,143,.4);pointer-events:none;white-space:nowrap';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity='1'; t.style.transform='translateX(-50%) translateY(0)';
+  clearTimeout(t._timer);
+  t._timer = setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(10px)';},2800);
+}
+
+// ════ API CONFIG ════
+const API_URL = 'https://script.google.com/macros/s/AKfycbwZ_JAI_b3FrVfLf3z1kgl0JzcNbGCbt8Xe1IK2LIDjKAZnE1T6as8JdaCifKIFRwaEOA/exec';
+let API_ONLINE = false;
+
+// ════ FETCH DATA FROM GOOGLE SHEETS ════
+async function loadFromAPI() {
+  try {
+    document.getElementById('sync-sub-msg').textContent = 'Leyendo actividades...';
+    // Try fetch first (works from localhost and hosted)
+    const res = await fetch(API_URL, {method:'GET', redirect:'follow'});
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const json = await res.json();
+    if(json.ok && Array.isArray(json.data) && json.data.length > 0) {
+      // Parse rows from Sheets into DATA format
+      // Support both short keys (id) and long keys (Nombre del evento)
+      DATA.length = 0;
+      json.data.forEach(row => {
+        const g = (a, b) => row[a] !== undefined ? row[a] : (row[b] !== undefined ? row[b] : '');
+        const id = Number(g('id','ID')) || Date.now();
+        const nombre = g('nombre','Nombre del evento');
+        if(!id && !nombre) return;
+        const fi = g('fecha_inicio','Fecha inicio') || '';
+        const parts = fi ? fi.split('-').map(Number) : [2026,1,1];
+        const fe = g('fecha_fin','Fecha fin') || fi;
+        const eparts = fe ? fe.split('-').map(Number) : parts;
+        const inv = g('inversion','Inversión con IVA (COP)');
+        const lds = g('leads','Leads esperados');
+        DATA.push({
+          id:          Number(g('id','ID')) || Date.now(),
+          nombre:      g('nombre','Nombre del evento')      || '',
+          tipo:        g('tipo','Tipo de participación')    || null,
+          estado:      g('estado','Estado')                 || '',
+          buyer:       g('buyer','Buyer / Audiencia')       || '',
+          sector:      g('sector','Sector objetivo')        || '',
+          ciudad:      g('ciudad','Ciudad')                 || '',
+          fechaStr:    g('fechaStr','Fecha (texto)')        || '',
+          mes:         g('mes','Mes')                       || '',
+          objetivo:    g('objetivo','Objetivo / Línea estratégica') || '',
+          descripcion: g('descripcion','Descripción del evento')    || null,
+          perfil:      g('perfil','Perfil de asistentes')           || null,
+          conceptos:   g('conceptos','Activación / Conceptos en campo') || null,
+          responsable: g('responsable','Responsable interno')       || '',
+          contacto:    g('contacto','Contacto de negociación')      || null,
+          asistentes:  g('asistentes','Asistentes del equipo enerBit') || '',
+          inversion:   inv !== '' && inv !== undefined ? Number(inv) : null,
+          leads:       lds !== '' && lds !== undefined ? Number(lds) : null,
+          impacto:     g('impacto','Impacto / Asistentes evento')   || null,
+          comentario:  g('comentario','Comentario interno')         || null,
+          links:       g('links','Links (separados por |)')         || '',
+          dates:       {y:parts[0]||2026, m:(parts[1]||1)-1, s:parts[2]||1, e:eparts[2]||parts[2]||1},
+        });
+      });
+      API_ONLINE = true;
+      // Save to localStorage as cache
+      try { localStorage.setItem('brandhub_data', JSON.stringify(DATA)); } catch(e){}
+      setAPIStatus(true, 'Conectado · Google Sheets');
+    } else {
+      throw new Error('Sin datos');
+    }
+  } catch(err) {
+    console.warn('API error:', err.message);
+    // Try localStorage cache
+    try {
+      const cached = localStorage.getItem('brandhub_data');
+      if(cached) {
+        const parsed = JSON.parse(cached);
+        if(parsed.length > 0) {
+          DATA.length = 0;
+          parsed.forEach(a => DATA.push(a));
+          setAPIStatus(false, 'Sin conexión · caché local');
+          console.log('Loaded', DATA.length, 'activities from cache');
+        }
+      }
+    } catch(e){}
+    API_ONLINE = false;
+    if(!DATA.length) setAPIStatus(false, 'Sin conexión · datos locales');
+  }
+  // Hide overlay and render
+  document.getElementById('sync-overlay').style.display = 'none';
+  renderHomeCards();
+  renderActCards();
+  renderCalendar();
+  setTimeout(()=>{
+    const s = document.getElementById('api-status');
+    s.style.opacity='1';
+    setTimeout(()=>{s.style.opacity='0';}, 4000);
+  }, 500);
+}
+
+async function saveToAPI(activityData) {
+  if(!API_ONLINE) return;
+  try {
+    // Use no-cors for POST (fire and forget — Sheets will still receive it)
+    await fetch(API_URL + '?data=' + encodeURIComponent(JSON.stringify(activityData)), {
+      method: 'GET',
+      redirect: 'follow',
+      mode: 'no-cors'
+    });
+  } catch(e) {
+    console.warn('Save to API failed:', e);
+  }
+}
+
+function setAPIStatus(online, msg) {
+  setTimeout(() => {
+    const dot = document.getElementById('api-dot');
+    const txt = document.getElementById('api-status-txt');
+    if(dot) dot.className = 'api-dot ' + (online ? 'green' : 'red');
+    if(txt) txt.textContent = msg;
+  }, 100);
+}
+
+// ════ INIT ════
+loadFromAPI();
+</script>
+
+<!-- Sync overlay -->
+<div class="sync-overlay" id="sync-overlay">
+  <div class="sync-box">
+    <div class="sync-spinner"></div>
+    <div class="sync-msg">⚡ Cargando Brand Hub</div>
+    <div class="sync-sub" id="sync-sub-msg">Conectando con Google Sheets...</div>
+  </div>
+</div>
+<!-- API status indicator -->
+<div class="api-status" id="api-status" style="opacity:0">
+  <div class="api-dot yellow" id="api-dot"></div>
+  <span id="api-status-txt">Sincronizando...</span>
+</div>
+</body>
+</html>
