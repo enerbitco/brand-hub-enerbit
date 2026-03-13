@@ -2086,17 +2086,33 @@ function showToast(msg){
 }
 
 // ════ API CONFIG ════
-const API_URL = 'https://script.google.com/macros/s/AKfycbwZ_JAI_b3FrVfLf3z1kgl0JzcNbGCbt8Xe1IK2LIDjKAZnE1T6as8JdaCifKIFRwaEOA/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbyzV5qtF6JWPwvb4Wbrmi7lkMa2VBRl9byLM18wbd_HLn2Ac6zeQQhi6Zlh0GnuAp57Aw/exec';
 let API_ONLINE = false;
 
 // ════ FETCH DATA FROM GOOGLE SHEETS ════
 async function loadFromAPI() {
   try {
-    document.getElementById('sync-sub-msg').textContent = 'Leyendo actividades...';
-    // Try fetch first (works from localhost and hosted)
-    const res = await fetch(API_URL, {method:'GET', redirect:'follow'});
-    if(!res.ok) throw new Error('HTTP ' + res.status);
-    const json = await res.json();
+    const subMsg = document.getElementById('sync-sub-msg');
+    if(subMsg) subMsg.textContent = 'Leyendo actividades...';
+    // Use JSONP — works from GitHub Pages and localhost
+    const json = await new Promise((resolve, reject) => {
+      const cbName = 'bh_cb_' + Date.now();
+      const script = document.createElement('script');
+      const timer = setTimeout(() => {
+        delete window[cbName];
+        if(script.parentNode) script.parentNode.removeChild(script);
+        reject(new Error('timeout'));
+      }, 8000);
+      window[cbName] = (data) => {
+        clearTimeout(timer);
+        delete window[cbName];
+        if(script.parentNode) script.parentNode.removeChild(script);
+        resolve(data);
+      };
+      script.src = API_URL + '?callback=' + cbName + '&t=' + Date.now();
+      script.onerror = () => { clearTimeout(timer); reject(new Error('script error')); };
+      document.head.appendChild(script);
+    });
     if(json.ok && Array.isArray(json.data) && json.data.length > 0) {
       // Parse rows from Sheets into DATA format
       // Support both short keys (id) and long keys (Nombre del evento)
