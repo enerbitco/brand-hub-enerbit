@@ -495,6 +495,38 @@ nav{
 .api-status{position:fixed;bottom:20px;right:20px;background:var(--white);border:1.5px solid var(--border);border-radius:10px;padding:8px 14px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;display:flex;align-items:center;gap:7px;box-shadow:0 2px 12px rgba(0,0,0,.08);z-index:1000;transition:opacity .3s;}
 .api-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .api-dot.green{background:#1a8f48;} .api-dot.red{background:#e53e3e;} .api-dot.yellow{background:#d69e2e;}
+
+/* ── BUDGET CHART ── */
+.budget-section{background:var(--white);border-radius:16px;border:1.5px solid var(--border-light);padding:24px 28px;margin-bottom:24px;}
+.budget-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px;}
+.budget-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;color:var(--text);}
+.budget-kpis{display:flex;gap:16px;flex-wrap:wrap;}
+.bkpi{text-align:center;padding:10px 18px;border-radius:10px;background:var(--surface2);}
+.bkpi-val{font-family:'Nunito',sans-serif;font-weight:900;font-size:17px;color:var(--eb-purple);}
+.bkpi-lbl{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-top:2px;}
+.bkpi.orange .bkpi-val{color:var(--eb-orange);}
+.bkpi.green .bkpi-val{color:#1a8f48;}
+.budget-meta{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:16px;}
+.month-bars{display:flex;flex-direction:column;gap:10px;}
+.mbar-row{display:grid;grid-template-columns:70px 1fr 110px;align-items:center;gap:12px;}
+.mbar-label{font-size:11.5px;font-weight:800;color:var(--muted);font-family:'Nunito',sans-serif;text-align:right;}
+.mbar-track{height:28px;background:var(--surface2);border-radius:8px;position:relative;overflow:visible;}
+.mbar-fill{height:100%;border-radius:8px;transition:width .4s ease;position:relative;min-width:0;}
+.mbar-fill.has-inv{background:linear-gradient(90deg,var(--eb-purple),#8b68c8);}
+.mbar-fill.over-budget{background:linear-gradient(90deg,#e53e3e,#fc8181);}
+.mbar-meta-line{position:absolute;top:0;bottom:0;width:2px;background:var(--eb-orange);opacity:.7;z-index:2;}
+.mbar-amounts{font-size:11px;font-weight:700;color:var(--text);font-family:'Nunito Sans',sans-serif;white-space:nowrap;}
+.mbar-amounts span{color:var(--muted);}
+.budget-legend{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap;}
+.bleg{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--muted);}
+.bleg-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+.meta-line-leg{width:14px;height:2px;background:var(--eb-orange);border-radius:2px;}
+.progress-bar-wrap{margin-top:20px;padding-top:16px;border-top:1px solid var(--border-light);}
+.progress-label{display:flex;justify-content:space-between;margin-bottom:8px;}
+.progress-label span{font-size:12px;font-weight:800;font-family:'Nunito',sans-serif;color:var(--muted);}
+.progress-label strong{color:var(--eb-purple);}
+.progress-track{height:16px;background:var(--surface2);border-radius:20px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,var(--eb-purple),var(--eb-orange));transition:width .6s ease;}
 </style>
 </head>
 <body>
@@ -667,7 +699,29 @@ nav{
       </div>
     </div>
 
-    <!-- timeline strip -->
+     <!-- BUDGET CHART -->
+    <div class="budget-section" id="budget-section">
+      <div class="budget-header">
+        <div class="budget-title">💰 Inversión mensual vs Presupuesto 2026</div>
+        <div class="budget-kpis">
+          <div class="bkpi"><div class="bkpi-val" id="bkpi-total">—</div><div class="bkpi-lbl">Invertido</div></div>
+          <div class="bkpi orange"><div class="bkpi-val" id="bkpi-remaining">—</div><div class="bkpi-lbl">Disponible</div></div>
+          <div class="bkpi green"><div class="bkpi-val" id="bkpi-pct">—</div><div class="bkpi-lbl">Ejecutado</div></div>
+        </div>
+      </div>
+      <div class="budget-meta">Presupuesto total: <strong style="color:var(--eb-purple);font-family:'Nunito',sans-serif">$550.000.000 COP</strong> · Solo se muestran meses con actividades o inversión registrada</div>
+      <div class="month-bars" id="budget-bars"></div>
+      <div class="budget-legend">
+        <div class="bleg"><div class="bleg-dot" style="background:var(--eb-purple)"></div>Inversión registrada</div>
+        <div class="bleg"><div class="bleg-dot" style="background:#e53e3e"></div>Sobre presupuesto mensual</div>
+        <div class="bleg"><div class="meta-line-leg"></div>Meta mensual proporcional ($45.8M)</div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-label"><span>Ejecución presupuestal 2026</span><span><strong id="prog-pct-txt">0%</strong> de $550M</span></div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+   <!-- timeline strip -->
     <div class="sec-head" style="margin-top:8px"><h2 class="sec-title">📅 Timeline del año</h2></div>
     <div class="dash-wrap" style="overflow-x:auto">
       <div style="display:flex;gap:0;min-width:700px" id="timeline-strip"></div>
@@ -1289,7 +1343,7 @@ function showView(id, el, ev) {
   document.getElementById('view-'+id).classList.add('active');
   if(el) el.classList.add('active');
   if(id==='calendar') renderCalendar();
-  if(id==='dashboard') renderTimeline();
+  if(id==='dashboard'){ renderTimeline(); renderBudget(); }
   if(id==='actividades') renderActCards();
   if(id==='home') renderHomeCards();
   if(id==='nueva'){ setTimeout(()=>resetForm(), 10); }
@@ -1813,6 +1867,57 @@ function goToDay(m, d) {
 }
 
 /* ═══════════════ TIMELINE ═══════════════ */
+function renderBudget() {
+  const PRESUPUESTO = 550000000;
+  const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const META_MES = PRESUPUESTO / 12;
+
+  // Group investment by month
+  const porMes = MESES.map((mes, i) => {
+    const acts = DATA.filter(a => a.dates && a.dates.m === i && a.dates.y === 2026);
+    const inv = acts.reduce((sum, a) => sum + (a.inversion !== null && a.inversion !== undefined ? Number(a.inversion) : 0), 0);
+    return { mes, inv, acts: acts.length };
+  });
+
+  // Only show months with activities or investment
+  const active = porMes.filter(m => m.acts > 0 || m.inv > 0);
+  const totalInv = porMes.reduce((s, m) => s + m.inv, 0);
+  const remaining = PRESUPUESTO - totalInv;
+  const pct = Math.min(100, (totalInv / PRESUPUESTO) * 100);
+  const maxInv = Math.max(...active.map(m => m.inv), META_MES * 1.2);
+
+  // KPIs
+  const el = id => document.getElementById(id);
+  if(el('bkpi-total')) el('bkpi-total').textContent = fmt(totalInv);
+  if(el('bkpi-remaining')) el('bkpi-remaining').textContent = fmt(Math.max(0, remaining));
+  if(el('bkpi-pct')) el('bkpi-pct').textContent = pct.toFixed(1) + '%';
+  if(el('prog-pct-txt')) el('prog-pct-txt').textContent = pct.toFixed(1) + '%';
+  if(el('progress-fill')) el('progress-fill').style.width = pct + '%';
+
+  // Bars
+  const bars = el('budget-bars');
+  if(!bars) return;
+  if(active.length === 0) {
+    bars.innerHTML = '<div style="color:var(--muted);font-size:13px;padding:16px 0">No hay inversiones registradas aún.</div>';
+    return;
+  }
+
+  bars.innerHTML = active.map(m => {
+    const fillPct = maxInv > 0 ? (m.inv / maxInv) * 100 : 0;
+    const metaPct = (META_MES / maxInv) * 100;
+    const overBudget = m.inv > META_MES;
+    const invStr = m.inv > 0 ? fmt(m.inv) : '—';
+    return `<div class="mbar-row">
+      <div class="mbar-label">${m.mes.substring(0,3).toUpperCase()}</div>
+      <div class="mbar-track">
+        <div class="mbar-fill ${m.inv > 0 ? (overBudget ? 'over-budget' : 'has-inv') : ''}" style="width:${fillPct}%"></div>
+        <div class="mbar-meta-line" style="left:${Math.min(metaPct,98)}%" title="Meta mensual: ${fmt(META_MES)}"></div>
+      </div>
+      <div class="mbar-amounts">${invStr} <span>/ ${m.acts} ev.</span></div>
+    </div>`;
+  }).join('');
+}
+
 function renderTimeline() {
   const strip = document.getElementById('timeline-strip');
   const months = MONTHS_ES.map((name,i)=>{
@@ -2194,12 +2299,27 @@ async function loadFromAPI() {
 async function saveToAPI(activityData) {
   if(!API_ONLINE) return;
   try {
-    // Use no-cors for POST (fire and forget — Sheets will still receive it)
-    await fetch(API_URL + '?data=' + encodeURIComponent(JSON.stringify(activityData)), {
-      method: 'GET',
-      redirect: 'follow',
-      mode: 'no-cors'
+    // Use JSONP to save — same pattern as reading, works from GitHub Pages
+    await new Promise((resolve, reject) => {
+      const cbName = 'bh_save_' + Date.now();
+      const script = document.createElement('script');
+      const timer = setTimeout(() => {
+        delete window[cbName];
+        if(script.parentNode) script.parentNode.removeChild(script);
+        resolve(); // don't reject on timeout — data may have been saved
+      }, 6000);
+      window[cbName] = (data) => {
+        clearTimeout(timer);
+        delete window[cbName];
+        if(script.parentNode) script.parentNode.removeChild(script);
+        resolve(data);
+      };
+      const payload = encodeURIComponent(JSON.stringify(activityData));
+      script.src = API_URL + '?callback=' + cbName + '&data=' + payload + '&t=' + Date.now();
+      script.onerror = () => { clearTimeout(timer); resolve(); };
+      document.head.appendChild(script);
     });
+    console.log('✅ Guardado en Google Sheets:', activityData.nombre || activityData.id);
   } catch(e) {
     console.warn('Save to API failed:', e);
   }
