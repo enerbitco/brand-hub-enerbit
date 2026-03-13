@@ -2163,7 +2163,8 @@ async function loadFromAPI() {
     if(!DATA.length) setAPIStatus(false, 'Sin conexión · datos locales');
   }
   // Hide overlay and render
-  document.getElementById('sync-overlay').style.display = 'none';
+  const ov = document.getElementById('sync-overlay');
+  if(ov) ov.style.display = 'none';
   renderHomeCards();
   renderActCards();
   renderCalendar();
